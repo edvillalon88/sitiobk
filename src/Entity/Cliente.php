@@ -27,11 +27,11 @@ class Cliente
     private $usuario;
 
     /** @ORM\Column(type="string", length=180) */
-    protected $url;
+    private $url;
 
 
     /** @ORM\Column(type="string", length=180) */
-    protected $imagen;
+    private $imagen;
 
     public function __construct()
     {

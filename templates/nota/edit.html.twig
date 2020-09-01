@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editar Nota</h1>
+
+    {{ include('nota/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    <a href="{{ path('nota_index') }}">Volver</a>
+
+{% endblock %}

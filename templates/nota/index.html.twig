@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1 class="h3 mb-2 text-gray-800">Nota</h1>
+    <p class="mb-4"></p>
+    <div class="card shadow mb-4">
+      <div class="card-header py-3 ">
+          <h5 class="m-0 font-weight-bold text-primary" style="display:inline">Detalles</h5>     
+      </div>
+      <div class="card-body">
+      
+        <div class='row form-group'>
+          <div class='col-md-6'>
+              <label class='control-label'>Título:</label>
+              <label><strong>{{ nota.titulo }}</strong></label>
+          </div>
+          <div class='col-md-6'>
+            <label class='control-label'>Título Inglés:</label>
+            <label><strong>{{ nota.tituloen }}</strong></label>
+          </div>        
+        </div>
+              
+        <div class='row form-group'>
+          <div class='col-md-6'>
+              <label class='control-label'>Subtítulo:</label>
+              <label><strong>{{ nota.subtitulo }}</strong></label>
+          </div>
+          <div class='col-md-6'>
+            <label class='control-label'>Subtítulo Inglés:</label>
+            <label><strong>{{ nota.subtituloen }}</strong></label>
+          </div>
+        </div>     
+
+        <div class='row form-group'>
+          <div class='col-md-6'>
+              <label class='control-label'>Contenido:</label>
+              <label><strong>{{ nota.contenido }}</strong></label>
+          </div>
+          <div class='col-md-6'>
+            <label class='control-label'>Contenido Inglés:</label>
+            <label><strong>{{ nota.contenidoen }}</strong></label>
+          </div>
+        </div>    
+      
+        <div class='row form-group'>
+          <div class='col-md-6'>
+              <label class='control-label'>Fecha:</label>
+              {% if nota.fechahora != null %}
+                <label><strong>{{ nota.fechahora |date("d/m/Y h:i:s") }}</strong></label>
+              {% else %}
+                <label></label>
+              {% endif %}
+          </div>
+          <div class='col-md-6'>
+            <label class='control-label'>Imagen:</label>
+            <label><strong>{{ nota.imagen }}</strong></label>
+          </div>
+        </div> 
+          
+        <a href="{{ path('nota_edit', {'id': 1}) }}">Editar</a>
+
+      </div>
+    </div>   
+
+{% endblock %}

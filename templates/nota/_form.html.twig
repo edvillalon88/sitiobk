@@ -1,0 +1,54 @@
+{{ form_start(form, { 'attr' : { 'class': 'nota' } }) }}
+    {% if not form.vars.valid %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ form_errors(form) }}
+        {{ form_errors(form.nota.titulo) }}
+        
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+
+    <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.titulo) }}
+            {{ form_widget(form.titulo) }}
+        </div>
+        <div class='col-md-6'>
+            {{ form_label(form.titulo_en) }}
+            {{ form_widget(form.titulo_en) }}
+        </div>        
+    </div>
+
+    <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.subtitulo) }}
+            {{ form_widget(form.subtitulo) }}
+        </div>
+        <div class='col-md-6'>
+            {{ form_label(form.subtitulo_en) }}
+            {{ form_widget(form.subtitulo_en) }}
+        </div>        
+    </div>
+
+    <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.contenido) }}
+            {{ form_widget(form.contenido) }}
+        </div>
+        <div class='col-md-6'>
+            {{ form_label(form.contenido_en) }}
+            {{ form_widget(form.contenido_en) }}
+        </div>        
+    </div>
+
+    <div class='row form-group'>
+        <div class='col-md-12'>
+            {{ form_label(form.imagen) }}
+            {{ form_widget(form.imagen) }}
+        </div>        
+    </div>
+   
+    <button class="btn btn-primary ">{{ button_label|default('Guardar') }}</button>
+{{ form_end(form) }}
