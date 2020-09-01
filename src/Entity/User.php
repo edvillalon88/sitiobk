@@ -7,6 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Table(name="Usuario")
  */
 class User implements UserInterface
 {
@@ -20,7 +21,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(name="email", type="string", length=180, unique=true)
      */
     private $username;
 
@@ -46,16 +47,9 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\OneToOne(targetEntity="Doctor", mappedBy="usuario", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Cliente", mappedBy="usuario", cascade={"persist", "remove"})
      */
-    private $doctor;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Secretaria", mappedBy="usuario", cascade={"persist", "remove"})
-     */
-    private $secretaria;
-
-    
+    private $cliente;
 
     /**
      * A visual identifier that represents this user.
@@ -126,45 +120,21 @@ class User implements UserInterface
     }
 
     /**
-     * Get the value of doctor
-     */ 
-    public function getDoctor()
+     * @return mixed
+     */
+    public function getCliente()
     {
-        return $this->doctor;
+        return $this->cliente;
     }
 
     /**
-     * Set the value of doctor
-     *
-     * @return  self
-     */ 
-    public function setDoctor($doctor)
+     * @param mixed $cliente
+     */
+    public function setCliente($cliente)
     {
-        $this->doctor = $doctor;
-
-        return $this;
+        $this->cliente = $cliente;
     }
-
-    /**
-     * Get the value of secretaria
-     */ 
-    public function getSecretaria()
-    {
-        return $this->secretaria;
-    }
-
-    /**
-     * Set the value of secretaria
-     *
-     * @return  self
-     */ 
-    public function setSecretaria($secretaria)
-    {
-        $this->secretaria = $secretaria;
-
-        return $this;
-    }
-
+    
     /**
      * Get the value of nombre
      */ 

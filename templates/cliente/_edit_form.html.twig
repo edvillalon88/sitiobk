@@ -1,0 +1,37 @@
+{{ form_start(form, { 'attr' : { 'class': 'user' } }) }}
+    {% if not form.usuario.vars.valid or not form.vars.valid %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ form_errors(form) }}
+        {{ form_errors(form.usuario.username) }}
+        
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+    <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.usuario.nombre) }}
+            {{ form_widget(form.usuario.nombre) }}
+        </div>
+        <div class='col-md-6'>
+            {{ form_label(form.usuario.apellidos) }}
+            {{ form_widget(form.usuario.apellidos) }}
+        </div>        
+    </div>
+
+     <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.url) }}
+            {{ form_widget(form.url) }}
+        </div>
+        <div class='col-md-6'>
+            {{ form_label(form.imagen) }}
+            {{ form_widget(form.imagen) }}
+        </div>        
+    </div>
+
+    <hr> 
+   
+    <button class="btn btn-primary ">{{ button_label|default('Guardar') }}</button>
+{{ form_end(form) }}
