@@ -51,82 +51,12 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
-        {#{% if is_granted('ROLE_ADMINISTRADOR') %}#}
-        {#<!-- Nav Item - Dashboard -->#}
-        {#<li class="nav-item ">#}
-          {#<a class="nav-link" href="{{ path('consultorio_index') }}">#}
-            {#<i class="fas fa-fw fa-hospital"></i>#}
-            {#<span>Consultorios</span>#}
-          {#</a>#}
-        {#</li>#}
-        {#{% endif %}       #}
-
-        {#{% if is_granted('ROLE_ADMINISTRADOR') %}#}
-        {#<!-- Nav Item - Dashboard -->#}
-        {#<li class="nav-item ">#}
-          {#<a class="nav-link" href="{{ path('especialidad_index') }}">#}
-            {#<i class="fas fa-fw fa-heartbeat"></i>#}
-            {#<span>Especialidades</span>#}
-          {#</a>#}
-        {#</li>#}
-        {#{% endif %}       #}
-
-        {% if is_granted('ROLE_ADMINISTRADOR') %}
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item ">
-          <a class="nav-link" href="{{ path('secretaria_index') }}">
-            <i class="fas fa-fw fa-female"></i>
-            <span>Secretarias</span>
-          </a>
-        </li>
-        {% endif %} 
-
-        {#{% if is_granted('ROLE_ADMINISTRADOR') %}#}
-        {#<!-- Nav Item - Dashboard -->#}
-        {#<li class="nav-item ">#}
-          {#<a class="nav-link" href="{{ path('doctor_index') }}">#}
-            {#<i class="fas fa-fw fa-user-md"></i>#}
-            {#<span>Doctores</span>#}
-          {#</a>#}
-        {#</li>#}
-        {#{% endif %} #}
-
-        {##}
-        {#<!-- Nav Item - Dashboard -->#}
-        {#<li class="nav-item ">#}
-          {#<a class="nav-link" href="{{ path('paciente_index') }}">#}
-            {#<i class="fas fa-fw fa-procedures"></i>#}
-            {#<span>Pacientes</span>#}
-          {#</a>#}
-        {#</li>#}
-        {##}
-
-        {##}
-        {#<!-- Nav Item - Dashboard -->#}
-        {#<li class="nav-item ">#}
-          {#<a class="nav-link" href="{{ path('citas_index') }}">#}
-            {#<i class="fas fa-fw fa-calendar" aria-hidden="true"></i>#}
-            {#<span>Citas</span>#}
-          {#</a>#}
-        {#</li>#}
-        {##}
-
-        {#{% if is_granted('ROLE_ADMINISTRADOR') or is_granted('ROLE_DOCTOR')  %}#}
-        {#<!-- Nav Item - Dashboard -->#}
-        {#<li class="nav-item ">#}
-          {#<a class="nav-link" href="{{ path('reporte_economico') }}">#}
-            {#<i class="fas fa-fw fa-dollar-sign" aria-hidden="true"></i>#}
-            {#<span>Reporte</span>#}
-          {#</a>#}
-        {#</li>#}
-        {#{% endif %} #}
-
         {% if is_granted('ROLE_ADMINISTRADOR') %}
         <!-- Nav Item - Dashboard -->
         <li class="nav-item ">
           <a class="nav-link" href="{{ path('cliente_index')}}">          
             <i class="fas fa-fw fa-user-circle" aria-hidden="true"></i>
-            <span><strong>Clientes</strong></span>
+            <span>Clientes</span>
           </a>
         </li>
 
@@ -134,7 +64,7 @@
         <li class="nav-item ">
           <a class="nav-link" href="{{ path('usuario') }}">          
             <i class="fas fa-fw fa-users" aria-hidden="true"></i>
-            <span><strong>Usuarios</strong></span>
+            <span>Usuarios</span>
           </a>
         </li>
         {% endif %} 
@@ -161,18 +91,6 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
-          <!-- Topbar Search
-          <form action="{{ path('paciente_search') }}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 float-right navbar-search">
-            <div class="input-group">
-              <input type="text" required name='criterio' class="form-control bg-light border-0 small" placeholder="Buscar Pacientes" aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">

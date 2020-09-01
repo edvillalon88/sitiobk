@@ -52,18 +52,6 @@ class User implements UserInterface
     private $cliente;
 
     /**
-     * @ORM\OneToOne(targetEntity="Doctor", mappedBy="usuario", cascade={"persist", "remove"})
-     */
-    private $doctor;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Secretaria", mappedBy="usuario", cascade={"persist", "remove"})
-     */
-    private $secretaria;
-
-    
-
-    /**
      * A visual identifier that represents this user.
      *
      * @see UserInterface
@@ -129,46 +117,6 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    /**
-     * Get the value of doctor
-     */ 
-    public function getDoctor()
-    {
-        return $this->doctor;
-    }
-
-    /**
-     * Set the value of doctor
-     *
-     * @return  self
-     */ 
-    public function setDoctor($doctor)
-    {
-        $this->doctor = $doctor;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of secretaria
-     */ 
-    public function getSecretaria()
-    {
-        return $this->secretaria;
-    }
-
-    /**
-     * Set the value of secretaria
-     *
-     * @return  self
-     */ 
-    public function setSecretaria($secretaria)
-    {
-        $this->secretaria = $secretaria;
-
-        return $this;
     }
 
     /**
