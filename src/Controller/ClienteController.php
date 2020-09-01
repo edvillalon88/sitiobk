@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Cliente;
-use App\Form\ClienteType;
+use App\Form\AddClienteType;
+use App\Form\EditClienteType;
 use App\Repository\ClienteRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -48,7 +49,7 @@ class ClienteController extends AbstractController
     public function new(Request $request, UserRepository $userRepository): Response
     {
         $cliente = new Cliente();
-        $form = $this->createForm(ClienteType::class, $cliente);
+        $form = $this->createForm(AddClienteType::class, $cliente);
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
@@ -59,9 +60,6 @@ class ClienteController extends AbstractController
                     $cliente->getUsuario(),
                     $cliente->getUsuario()->getPassword()
                 ));
-
-                $cliente->setUrl('');
-                $cliente->setImagen('');
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($cliente);
@@ -93,7 +91,7 @@ class ClienteController extends AbstractController
      */
     public function edit(Request $request, Cliente $cliente): Response
     {
-        $form = $this->createForm(ClienteType::class, $cliente);
+        $form = $this->createForm(EditClienteType::class, $cliente);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

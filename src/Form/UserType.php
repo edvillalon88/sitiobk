@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -30,7 +29,7 @@ class UserType extends AbstractType
             ))
             ->add('username',TextType::class,array(
                 'label'=>'Correo Electrónico *',
-                'attr'=>array('class'=>'form-control', 'placeholder'=>'Correo Electrónico'),
+                'attr'=>array('class'=>'form-control', 'placeholder'=>'Correo Electrónico', 'autocomplete'=>'new-username'),
                 'required'=>true,
             ))
             ->add('password',RepeatedType::class, [
@@ -39,7 +38,7 @@ class UserType extends AbstractType
                 'invalid_message' => 'Las contraseñas no coinciden.',
                 'options' => ['attr' => ['class' => 'form-control']],
                 'required' => true,
-                'first_options'  => ['label' => 'Password *','attr'=>['class' => 'form-control','placeholder'=>'Contraseña']],
+                'first_options'  => ['label' => 'Password *','attr'=>['class' => 'form-control','placeholder'=>'Contraseña', 'autocomplete'=>'new-password']],
                 'second_options' => ['label' => 'Confirmar Password *','attr'=>['class' => 'form-control','placeholder'=>'Confirmar Contraseña']],
             ])            
         ;

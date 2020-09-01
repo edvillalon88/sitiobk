@@ -9,7 +9,8 @@
 
       <style>
         #accordionSidebar {
-          background: darkred url(../build/images/background.jpg) no-repeat 100% 100% !important;
+          background: darkred url({{asset('images/background.jpg')}}) no-repeat !important;
+          background-size: cover !important;
         }
         .text-primary {
             color: indianred !important;
@@ -44,7 +45,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"
           href="{{ path('home') }}">
-          <img src="../build/images/logox48.jpg" />
+          <img src="{{asset('images/logox48.jpg')}}" />
         </a>
 
         <!-- Divider -->
