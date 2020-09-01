@@ -28,9 +28,9 @@ class UserType extends AbstractType
                 'required'=>true
             ))
             ->add('username',TextType::class,array(
-                'label'=>'Usuario *',
-                'attr'=>array('class'=>'form-control', 'placeholder'=>'Usuario'),
-                'required'=>true
+                'label'=>'Correo Electrónico *',
+                'attr'=>array('class'=>'form-control', 'placeholder'=>'Correo Electrónico'),
+                'required'=>true,
             ))
             ->add('password',RepeatedType::class, [
                 'type' => PasswordType::class,

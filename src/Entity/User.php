@@ -7,6 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Table(name="Usuario")
  */
 class User implements UserInterface
 {
@@ -20,7 +21,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(name="email", type="string", length=180, unique=true)
      */
     private $username;
 
@@ -44,6 +45,11 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Cliente", mappedBy="usuario", cascade={"persist", "remove"})
+     */
+    private $cliente;
 
     /**
      * @ORM\OneToOne(targetEntity="Doctor", mappedBy="usuario", cascade={"persist", "remove"})
@@ -165,6 +171,22 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * @param mixed $cliente
+     */
+    public function setCliente($cliente)
+    {
+        $this->cliente = $cliente;
+    }
+    
     /**
      * Get the value of nombre
      */ 

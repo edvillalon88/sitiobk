@@ -72,7 +72,7 @@ class UsuarioController extends AbstractController
     {
         $usuario->setPassword($this->passwordEncoder->encodePassword(
             $usuario,
-            'CitasMedicas8801*'
+            'Bk12345*'
         ));
         $this->getDoctrine()->getManager()->flush();
 

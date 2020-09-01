@@ -1,61 +1,65 @@
-{% extends 'loginbase.html.twig' %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>Registrarse | BK Import - Export</title>
 
-{% block title %}Login{% endblock %}
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
 
-{% block body %}
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap-4.3.1.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    h2{
+      color:#fff ;
+      margin-bottom: 20px;
+    }
 
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="../css/signin.css" rel="stylesheet">
+</head>
+<body class="text-center">
 
-<div class="container">
+{% if error %}
+  <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
 
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-      <div class="col-xl-10 col-lg-12 col-md-9">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">BIENVENIDO</h1>
-                  </div>
-                  {% if error %}
-                      <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                  {% endif %}
-
-                  {% if app.user %}
-                      <div class="mb-3 text-center">
-                          Estas logueado como {{ app.user.username }}, <a href="{{ path('app_logout') }}">Salir</a>
-                      </div>
-                  {% endif %}
-                  <form class="user" method="post">
-                    <div class="form-group">                      
-                      <input value="{{ last_username }}" name="username" id="inputUsername" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Usuario">
-                    </div>
-                    <div class="form-group">
-                      <input type="password" name="password" id="inputPassword" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña">
-                      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
-                    </div>
-                    
-                    <button class="btn btn-primary btn-user btn-block" type="submit">
-                        Entrar
-                    </button>
-                                      
-                  </form>
-                  <hr>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
+{% if app.user %}
+  <div class="mb-3 text-center">
+    Estas logueado como {{ app.user.username }}, <a href="{{ path('app_logout') }}">Salir</a>
   </div>
-{% endblock %}
+{% endif %}
+
+<form method="post" class="form-signin">
+  <img class="mb-4" src="../images/logo.png" alt="">
+  <h2 >Rellene los campos</h2>
+  <label for="inputEmail" class="sr-only">Correo Electrónico</label>
+  <input type="email" value="{{ last_username }}" name="username" id="inputUsername" class="form-control"
+         placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Contraseña</label>
+  <input type="password" name="password" id="inputPassword" class="form-control form-control-user" placeholder="Password" placeholder="Contraseña" required>
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+
+  <button class="btn btn-lg btn-block btn-danger" type="submit">Entrar</button>
+  <a href="#" class="mt-5 mb-3 text-muted">Volver al sitio</a>
+</form>
+</body>
+</html>
