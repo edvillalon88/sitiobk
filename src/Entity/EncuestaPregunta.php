@@ -31,7 +31,7 @@ class EncuestaPregunta
 
     /**
      * Many Encuestas Preguntas has Many Respuestas.
-     * @ORM\OneToMany(targetEntity="Respuesta", mappedBy="encuestaPregunta", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="RespuestaPregunta", mappedBy="encuestaPregunta", cascade={"remove"})
      */
     private $respuestas; 
 

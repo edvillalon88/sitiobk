@@ -20,11 +20,29 @@ class Encuesta
     /** @ORM\Column(type="string", length=180) */
     private $nombre;
 
+    /** @ORM\Column(type="string", length=180) */
+    private $logo;
+
+    /** @ORM\Column(type="string", length=180) */
+    private $codigo;
+
+    /** @ORM\Column(type="string", length=180) */
+    private $rev;    
+
+    /** @ORM\Column(type="text") */
+    private $descripcion;
+
     /**
      * Many Encuesta has Many Pregunta.
      * @ORM\OneToMany(targetEntity="EncuestaPregunta", mappedBy="encuesta", cascade={"remove"})
      */
     private $preguntas; 
+
+    /**
+     * Many Encuesta has Many Respuesta.
+     * @ORM\OneToMany(targetEntity="Respuesta", mappedBy="encuesta", cascade={"remove"})
+     */
+    private $respuestas; 
 
     public function __construct()
     {
@@ -66,6 +84,70 @@ class Encuesta
     /**
      * @return mixed
      */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param mixed $logo
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * @param mixed $codigo
+     */
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRev()
+    {
+        return $this->rev;
+    }
+
+    /**
+     * @param mixed $rev
+     */
+    public function setRev($rev)
+    {
+        $this->rev = $rev;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * @param mixed $descripcion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    }
+    
+    /**
+     * @return mixed
+     */
     public function getPreguntas()
     {
         return $this->preguntas;
@@ -78,7 +160,23 @@ class Encuesta
     {
         $this->preguntas = $preguntas;
     }
-    
+
+    /**
+     * @return mixed
+     */
+    public function getRespuestas()
+    {
+        return $this->respuestas;
+    }
+
+    /**
+     * @param mixed $respuestas
+     */
+    public function setRespuestas($respuestas)
+    {
+        $this->respuestas = $respuestas;
+    }
+
     public function __toString()
     {
         return $this->getNombre();

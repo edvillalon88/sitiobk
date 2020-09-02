@@ -22,10 +22,10 @@ class Respuesta
     private $fechaHora;
 
     /**
-     * @ORM\ManyToOne(targetEntity="EncuestaPregunta", inversedBy="respuestas", cascade={"persist"})
-     * @ORM\JoinColumn(name="encuestaPregunta_id", referencedColumnName="id") 
+     * @ORM\ManyToOne(targetEntity="Encuesta", inversedBy="respuestas", cascade={"persist"})
+     * @ORM\JoinColumn(name="encuesta_id", referencedColumnName="id") 
      */
-    private $encuestaPregunta;
+    private $encuesta;
 
     /**
     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="respuestas", cascade={"persist"})
@@ -33,25 +33,28 @@ class Respuesta
     */
     private $cliente;
 
-    /** @ORM\Column(type="string", length=180) */
-    private $valor;
+    /**
+     * Many Encuesta has Many Pregunta.
+     * @ORM\OneToMany(targetEntity="RespuestaPregunta", mappedBy="respuesta", cascade={"remove"})
+     */
+    private $respuestasPreguntas; 
 
     public function __construct()
     {
-
+        $this->respuestasPreguntas = new ArrayCollection();
     }
 
     /**
-     * Get the value of id
-     */ 
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
     /**
-     * Set the value of id
-     */ 
+     * @param mixed $id
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -76,17 +79,17 @@ class Respuesta
     /**
      * @return mixed
      */
-    public function getEncuestaPregunta()
+    public function getEncuesta()
     {
-        return $this->encuestaPregunta;
+        return $this->encuesta;
     }
 
     /**
-     * @param mixed $encuestaPregunta
+     * @param mixed $encuesta
      */
-    public function setEncuestaPregunta($encuestaPregunta)
+    public function setEncuesta($encuesta)
     {
-        $this->encuestaPregunta = $encuestaPregunta;
+        $this->encuesta = $encuesta;
     }
 
     /**
@@ -108,21 +111,21 @@ class Respuesta
     /**
      * @return mixed
      */
-    public function getValor()
+    public function getRespuestasPreguntas()
     {
-        return $this->valor;
+        return $this->respuestasPreguntas;
     }
 
     /**
-     * @param mixed $valor
+     * @param mixed $respuestasPreguntas
      */
-    public function setValor($valor)
+    public function setRespuestasPreguntas($respuestasPreguntas)
     {
-        $this->valor = $valor;
-    }    
+        $this->respuestasPreguntas = $respuestasPreguntas;
+    }
 
     public function __toString()
     {
-        return $this->getValor();
+        return $this->getId();
     }
 }
