@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,7 +17,7 @@ class Nota
     protected $id;
 
     /**     
-     * @ORM\Column(name="fecha_hora", type="datetime", nullable=true) 
+     * @ORM\Column(name="fechaHora", type="datetime", nullable=true) 
      */
     private $fechaHora;
 
@@ -26,19 +25,19 @@ class Nota
     private $titulo;
 
     /** @ORM\Column(type="string", length=180) */
-    private $titulo_en;
+    private $tituloEn;
 
     /** @ORM\Column(type="string", length=180) */
     private $subtitulo;
 
     /** @ORM\Column(type="string", length=180) */
-    private $subtitulo_en;
+    private $subtituloEn;
 
     /** @ORM\Column(type="text") */
     private $contenido;
 
     /** @ORM\Column(type="text") */
-    private $contenido_en;
+    private $contenidoEn;
 
     /** @ORM\Column(type="string", length=180) */
     private $imagen;
@@ -105,15 +104,15 @@ class Nota
      */
     public function getTituloEn()
     {
-        return $this->titulo_en;
+        return $this->tituloEn;
     }
 
     /**
      * @param mixed $titulo_en
      */
-    public function setTituloEn($titulo_en)
+    public function setTituloEn($tituloEn)
     {
-        $this->titulo_en = $titulo_en;
+        $this->tituloEn = $tituloEn;
     }
 
     /**
@@ -137,15 +136,15 @@ class Nota
      */
     public function getSubtituloEn()
     {
-        return $this->subtitulo_en;
+        return $this->subtituloEn;
     }
 
     /**
      * @param mixed $subtitulo_en
      */
-    public function setSubtituloEn($subtitulo_en)
+    public function setSubtituloEn($subtituloEn)
     {
-        $this->subtitulo_en = $subtitulo_en;
+        $this->subtituloEn = $subtituloEn;
     }
 
     /**
@@ -169,15 +168,15 @@ class Nota
      */
     public function getContenidoEn()
     {
-        return $this->contenido_en;
+        return $this->contenidoEn;
     }
 
     /**
-     * @param mixed $contenido_en
+     * @param mixed $contenidoEn
      */
-    public function setContenidoEn($contenido_en)
+    public function setContenidoEn($contenidoEn)
     {
-        $this->contenido_en = $contenido_en;
+        $this->contenidoEn = $contenidoEn;
     }
 
     /**

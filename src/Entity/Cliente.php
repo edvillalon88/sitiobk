@@ -33,9 +33,15 @@ class Cliente
     /** @ORM\Column(type="string", length=180) */
     private $imagen;
 
+    /**
+     * Many Clientes has Many Respuestas.
+     * @ORM\OneToMany(targetEntity="Respuesta", mappedBy="cliente", cascade={"remove"})
+     */
+    private $respuestas;     
+
     public function __construct()
     {
-
+        $this->respuestas = new ArrayCollection();
     }
 
     /**
@@ -110,7 +116,18 @@ class Cliente
         $this->imagen = $imagen;
     }
 
+    public function getRespuestas()
+    {
+        return $this->respuestas;
+    }
 
+    /**
+     * @param mixed $respuestas
+     */
+    public function setRespuestas($respuestas)
+    {
+        $this->respuestas = $respuestas;
+    }
   
     public function __toString()
     {
