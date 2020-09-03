@@ -21,6 +21,12 @@ class Pregunta
     private $enunciado;
 
     /**
+     * @ORM\ManyToOne(targetEntity="PreguntaTipo", inversedBy="preguntas", cascade={"persist"})
+     * @ORM\JoinColumn(name="pregunta_tipo_id", referencedColumnName="id")
+     */
+    private $tipo;
+
+    /**
      * Many Pregunta has Many Encuesta.
      * @ORM\OneToMany(targetEntity="EncuestaPregunta", mappedBy="pregunta", cascade={"remove"})
      */
@@ -61,6 +67,22 @@ class Pregunta
     public function setEnunciado($enunciado)
     {
         $this->enunciado = $enunciado;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * @param mixed $tipo
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
     }
 
     /**

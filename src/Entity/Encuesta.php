@@ -30,7 +30,10 @@ class Encuesta
     private $rev;    
 
     /** @ORM\Column(type="text") */
-    private $descripcion;
+    private $descripCabecera;
+
+    /** @ORM\Column(type="text") */
+    private $descripFinal;
 
     /**
      * Many Encuesta has Many Pregunta.
@@ -132,17 +135,33 @@ class Encuesta
     /**
      * @return mixed
      */
-    public function getDescripcion()
+    public function getDescripCabecera()
     {
-        return $this->descripcion;
+        return $this->descripCabecera;
     }
 
     /**
-     * @param mixed $descripcion
+     * @param mixed $descripCabecera
      */
-    public function setDescripcion($descripcion)
+    public function setDescripCabecera($descripCabecera)
     {
-        $this->descripcion = $descripcion;
+        $this->descripCabecera = $descripCabecera;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescripFinal()
+    {
+        return $this->descripFinal;
+    }
+
+    /**
+     * @param mixed $descripFinal
+     */
+    public function setDescripFinal($descripFinal)
+    {
+        $this->descripFinal = $descripFinal;
     }
     
     /**
