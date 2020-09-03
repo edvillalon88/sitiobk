@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\PreguntaTipo;
 use App\Entity\Pregunta;
 use App\Entity\Encuesta;
+use App\Entity\EncuestaPregunta;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -15,7 +16,14 @@ class EncuestaFixtures extends Fixture
     {
         //Llenar los set de Encuesta
         $encuesta = new Encuesta();
-
+        $encuesta->setNombre('...');
+        $encuesta->setCodigo('...');
+        $encuesta->setRev('...');
+        $encuesta->setDescripCabecera('...');
+        $encuesta->setDescripFinal('...');
+        //Despues que se llene los set de la encuesta
+        //descomentariar el persist siguiente
+        //$manager->persist($encuesta);
 
         $tipos = [
             array('tipo'=>'Descripcion','respuestas'=>''),
@@ -39,6 +47,7 @@ class EncuestaFixtures extends Fixture
 
         //Crear arreglo para preguntas recomendación
 
+        //Seguir este ciclo y los que estan dentro
         for($i = 0; $i < count($tipos); $i++){
             $tipo = new PreguntaTipo();
             $tipo->setTipo($tipos[$i]['tipo']);
@@ -47,12 +56,19 @@ class EncuestaFixtures extends Fixture
 
             switch($tipo->getTipo()) {
 
-                //Completar el swith con todos los case necesarios
+                //Completar el switch con todos los case necesarios
                 case 'Literal':
                     for($a = 0; $a < count($preguntasLiteral); $a++){
+                        //Crear la pregunta
                         $pregunta = new Pregunta();
                         $pregunta->setEnunciado('...');
                         $pregunta->setTipo($tipo);
+
+                        //Crear la relación
+                        $relacion = new EncuestaPregunta();
+                        $relacion->setEncuesta($encuesta);
+                        $relacion->setPregunta($pregunta);
+
                         $manager->persist($pregunta);
                     }
                 break;
