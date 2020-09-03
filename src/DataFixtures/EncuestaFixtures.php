@@ -19,6 +19,7 @@ class EncuestaFixtures extends Fixture
         $encuesta->setNombre('...');
         $encuesta->setCodigo('...');
         $encuesta->setRev('...');
+        $encuesta->setLogo('...');
         $encuesta->setDescripCabecera('...');
         $encuesta->setDescripFinal('...');
         //Despues que se llene los set de la encuesta
@@ -61,7 +62,7 @@ class EncuestaFixtures extends Fixture
                     for($a = 0; $a < count($preguntasLiteral); $a++){
                         //Crear la pregunta
                         $pregunta = new Pregunta();
-                        $pregunta->setEnunciado('...');
+                        $pregunta->setEnunciado($preguntasLiteral[$a]['enunciado']);
                         $pregunta->setTipo($tipo);
 
                         //Crear la relación
@@ -70,6 +71,7 @@ class EncuestaFixtures extends Fixture
                         $relacion->setPregunta($pregunta);
 
                         $manager->persist($pregunta);
+                        $manager->persist($relacion);
                     }
                 break;
 
