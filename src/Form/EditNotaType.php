@@ -19,7 +19,7 @@ class EditNotaType extends AbstractType
                 'attr'=>array('class'=>'form-control','placeholder'=>'Titulo'),
                 'required'=>true
             ))
-            ->add('titulo_en',TextType::class,array(
+            ->add('tituloEn',TextType::class,array(
                 'label'=>'Titulo Inglés *',
                 'attr'=>array('class'=>'form-control','placeholder'=>'Titulo Inglés'),
                 'required'=>true
@@ -29,7 +29,7 @@ class EditNotaType extends AbstractType
                 'attr'=>array('class'=>'form-control','placeholder'=>'SubTitulo'),
                 'required'=>true
             ))      
-            ->add('subtitulo_en',TextType::class,array(
+            ->add('subtituloEn',TextType::class,array(
                 'label'=>'SubTitulo Inglés *',
                 'attr'=>array('class'=>'form-control','placeholder'=>'SubTitulo Inglés'),
                 'required'=>true
@@ -39,7 +39,7 @@ class EditNotaType extends AbstractType
                 'attr'=>array('class'=>'form-control','placeholder'=>'Contenido'),
                 'required'=>true
             ))   
-            ->add('contenido_en',TextareaType::class,array(
+            ->add('contenidoEn',TextareaType::class,array(
                 'label'=>'Contenido Inglés *',
                 'attr'=>array('class'=>'form-control','placeholder'=>'Contenido Inglés'),
                 'required'=>true

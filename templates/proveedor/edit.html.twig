@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editar Proveedor</h1>
+
+    {{ include('proveedor/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    <a href="{{ path('proveedor_index') }}">Volver a listado</a>
+
+{% endblock %}

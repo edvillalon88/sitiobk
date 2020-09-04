@@ -1,0 +1,31 @@
+{{ form_start(form, { 'attr' : { 'class': 'proveedor' } }) }}
+    {% if not form.vars.valid %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ form_errors(form) }}
+        {{ form_errors(form.pais) }}
+        
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+    <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.pais) }}
+            {{ form_widget(form.pais) }}
+        </div>
+        <div class='col-md-6'>
+            {{ form_label(form.paisEn) }}
+            {{ form_widget(form.paisEn) }}
+        </div>        
+    </div>
+
+     <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.continente) }}
+            {{ form_widget(form.continente) }}
+        </div>       
+    </div>
+   
+    <button class="btn btn-primary ">{{ button_label|default('Guardar') }}</button>
+{{ form_end(form) }}
