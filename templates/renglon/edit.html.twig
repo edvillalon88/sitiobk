@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editar Renglón de Exportación</h1>
+
+    {{ include('renglon/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    <a href="{{ path('renglon_index') }}">Volver a listado</a>
+
+{% endblock %}

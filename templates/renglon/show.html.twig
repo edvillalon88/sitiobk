@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Renglón de Exportación</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ renglon.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('renglon_index') }}">Volver a listado</a>
+
+    <a href="{{ path('renglon_edit', {'id': renglon.id}) }}">Editar</a>
+
+    {{ include('renglon/_delete_form.html.twig') }}
+{% endblock %}
