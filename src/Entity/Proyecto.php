@@ -6,9 +6,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\RenglonRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ProyectoRepository")
  */
-class Renglon
+class Proyecto
 {
     /**
      * @var \Ramsey\Uuid\UuidInterface
@@ -32,18 +32,24 @@ class Renglon
     /** @ORM\Column(type="text") */
     private $descripcionEn;
 
-    /** @ORM\Column(type="string", length=180) */
-    private $imagen;
+    /** @ORM\Column(type="string", length=180, nullable=true) */
+    private $alcance;
 
     /**
-     * Many Proyectos has One Renglon.
-     * @ORM\OneToMany(targetEntity="Proyecto", mappedBy="renglon", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="ProyectoTipo", inversedBy="proyectos", cascade={"persist"})
+     * @ORM\JoinColumn(name="proyecto_tipo_id", referencedColumnName="id")
      */
-    private $proyectos;
+    private $tipo;
+
+        /**
+     * @ORM\ManyToOne(targetEntity="Renglon", inversedBy="proyectos", cascade={"persist"})
+     * @ORM\JoinColumn(name="renglon_id", referencedColumnName="id")
+     */
+    private $renglon;
 
     public function __construct()
     {
-        $this->proyectos = new ArrayCollection();
+
     }
 
     /**
@@ -129,33 +135,49 @@ class Renglon
     /**
      * @return mixed
      */
-    public function getImagen()
+    public function getAlcance()
     {
-        return $this->imagen;
+        return $this->alcance;
     }
 
     /**
-     * @param mixed $imagen
+     * @param mixed $alcance
      */
-    public function setImagen($imagen)
+    public function setAlcance($alcance)
     {
-        $this->imagen = $imagen;
+        $this->alcance = $alcance;
     }
 
     /**
      * @return mixed
      */
-    public function getProyectos()
+    public function getTipo()
     {
-        return $this->proyectos;
+        return $this->tipo;
     }
 
     /**
-     * @param mixed $proyectos
+     * @param mixed $tipo
      */
-    public function setProyectos($proyectos)
+    public function setTipo($tipo)
     {
-        $this->proyectos = $proyectos;
+        $this->tipo = $tipo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRenglon()
+    {
+        return $this->renglon;
+    }
+
+    /**
+     * @param mixed $renglon
+     */
+    public function setRenglon($renglon)
+    {
+        $this->renglon = $renglon;
     }
 
     public function __toString()

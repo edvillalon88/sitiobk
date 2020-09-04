@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editar Proyecto</h1>
+
+    {{ include('proyecto/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    <a href="{{ path('proyecto_index') }}">Volver a listado</a>
+
+{% endblock %}
