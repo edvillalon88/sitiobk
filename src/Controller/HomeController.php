@@ -14,15 +14,21 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+
+        if(!empty($this->getUser())) {
+            return $this->render('home/index.html.twig', [
+                'data'=>0,
+                'consultas'=>0,
+                'reviciones'=>0,
+                'totalMoney'=>0,
+                'cancelas'=>0,
+                'realizadas'=>0,
+                'pendientes'=>0
+            ]);
+        } else {
+            return $this->render('home/indexNoLogin.html.twig');
+        }
         
-        return $this->render('home/index.html.twig', [
-            'data'=>0,
-            'consultas'=>0,
-            'reviciones'=>0,
-            'totalMoney'=>0,
-            'cancelas'=>0,
-            'realizadas'=>0,
-            'pendientes'=>0
-        ]);
+
     }
 }
