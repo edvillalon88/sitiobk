@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\ImageUploader;
 
 /**
  * @Route("/renglon")
@@ -30,7 +31,7 @@ class RenglonController extends AbstractController
     /**
      * @Route("/new", name="renglon_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, ImageUploader $imageUploader): Response
     {
         $renglon = new Renglon();
         $form = $this->createForm(RenglonType::class, $renglon);
@@ -38,7 +39,11 @@ class RenglonController extends AbstractController
         if($form->isSubmitted()){
 
             if ($form->isValid()) {
-
+                $imageFile = $form->get('imagen')->getData();
+                if ($imageFile) {
+                    $imageName = $imageUploader->upload($imageFile);
+                    $renglon->setImagen($imageName);
+                }
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($renglon);
                 $entityManager->flush();
@@ -68,13 +73,18 @@ class RenglonController extends AbstractController
     /**
      * @Route("/{id}/edit", name="renglon_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Renglon $renglon): Response
+    public function edit(Request $request, Renglon $renglon, ImageUploader $imageUploader): Response
     {
         $form = $this->createForm(RenglonType::class, $renglon);
         $form->handleRequest($request);
         if($form->isSubmitted()){
 
             if ($form->isValid()) {
+                $imageFile = $form->get('imagen')->getData();
+                if ($imageFile) {
+                    $imageName = $imageUploader->upload($imageFile);
+                    $renglon->setImagen($imageName);
+                }
                 $this->getDoctrine()->getManager()->flush();
     
                 return $this->redirectToRoute('renglon_index');
