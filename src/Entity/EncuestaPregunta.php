@@ -35,6 +35,11 @@ class EncuestaPregunta
      */
     private $respuestas; 
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $orden;
+
     public function __construct()
     {
         $this->respuestas = new ArrayCollection();
@@ -99,6 +104,22 @@ class EncuestaPregunta
     public function setRespuestas($respuestas)
     {
         $this->respuestas = $respuestas;
+    }
+
+    /**
+     * Get the value of orden
+     */ 
+    public function getOrden()
+    {
+        return $this->orden;
+    }
+
+    /**
+     * Set the value of orden
+     */ 
+    public function setOrden($orden)
+    {
+        $this->orden = $orden;
     }
 
     public function __toString()

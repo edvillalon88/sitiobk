@@ -26,6 +26,19 @@
           background-color: darkred !important;
           border-color: red !important;
         }
+
+        .tb-encuesta-margin {
+          margin: 10px;
+        }
+        .tb-encuesta-border {
+          border: 1px solid black;
+        }
+        .tb-encuesta-center {
+          text-align: center;
+        }
+        .tb-encuesta-justify {
+          text-align: justify;
+        }        
       </style>
 
       <!--  Renders a link tag (if your module requires any CSS)
@@ -93,6 +106,12 @@
           <a class="nav-link" href="{{ path('usuario') }}">          
             <i class="fas fa-fw fa-users" aria-hidden="true"></i>
             <span>Usuarios</span>
+          </a>
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link" href="{{ path('encuesta_new') }}">                      
+            <span>Opcional Solicitar Encuesta</span>
           </a>
         </li>
         {% endif %} 

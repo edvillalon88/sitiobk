@@ -26,10 +26,10 @@ class EncuestaFixtures extends Fixture
         'Calidad de los Servicios que recibe de nuestra Empresa. '.
         'Su opinión nos será de inestimable ayuda para la mejora continua de los mismos. ' .
         'Muchas Gracias');
-        $encuesta->setDescripFinal('Tenga la bondad de devolver este cuestionario a traves de la via que '. 
-        'considere adecuada, preferiblemente a traves de nuestros empleados '.
-        'o por e-mail a las direcciones siguientes: elysd@bkimp.co.cu; josep@bkimp.co.cu '.
-        'Nota: Puede escribir al dorso.');
+        $encuesta->setDescripFinal('En caso de no usar la versión web de la encuesta, '.
+        'tenga la bondad de devolver este cuestionario a través de la vía que '. 
+        'considere adecuada, preferiblemente a través de nuestros empleados '.
+        'o por e-mail a las direcciones siguientes: elysd@bkimp.co.cu; josep@bkimp.co.cu ');
 
         $manager->persist($encuesta);
 
@@ -43,37 +43,44 @@ class EncuestaFixtures extends Fixture
 
         //Llenar los enunciados para preguntas literales
         $preguntasLiteral = [
-            array('enunciado'=>'1. Atención de nuestro personal en recepción o por teléfono.'),
-            array('enunciado'=>'2. Eficacia del proceso de contratación.'),
-            array('enunciado'=>'3. Eficacia de la entrega del material contratado.'),
-            array('enunciado'=>'4. Desempeño y profesionalidad del personal que lo atendió.'),
-            array('enunciado'=>'5. Eficiencia del proceso de Facturación.'),
-            array('enunciado'=>'6. Calidad del servicio recibido.'),
-            array('enunciado'=>'7. Satisfacción con el servicio prestado.'),
+            array('enunciado'=>'1. Atención de nuestro personal en recepción o por teléfono.',
+                    'orden' => 1),
+            array('enunciado'=>'2. Eficacia del proceso de contratación.',
+                    'orden' => 1),
+            array('enunciado'=>'3. Eficacia de la entrega del material contratado.',
+                    'orden' => 1),
+            array('enunciado'=>'4. Desempeño y profesionalidad del personal que lo atendió.',
+                    'orden' => 1),
+            array('enunciado'=>'5. Eficiencia del proceso de Facturación.', 
+                    'orden' => 1),
+            array('enunciado'=>'6. Calidad del servicio recibido.', 
+                    'orden' => 1),
+            array('enunciado'=>'7. Satisfacción con el servicio prestado.', 
+                    'orden' => 1),
         ];
  
 
         //Crear arreglo para preguntas descripcion
         $preguntasDescripcion = [
-           array('enunciado'=>'Expectativas insatisfechas:'),
-           array('enunciado'=>'Aspectos que considere se pueden mejorar:'),
+           array('enunciado'=>'Expectativas insatisfechas:', 'orden' => 2),
+           array('enunciado'=>'Aspectos que considere se pueden mejorar:', 'orden' => 4),
         ];
 
         //Crear arreglo para preguntas bandera
         $preguntasBandera = [
-           array('enunciado'=>'Solicitaría nuevamente nuestros servicios:'),
+           array('enunciado'=>'Solicitaría nuevamente nuestros servicios:', 'orden' => 3),
         ];
 
         //Crear arreglo para preguntas de servicio
          $preguntasServicio = [
-            array('enunciado'=>'Cuál de nuestros servicios ha utilizado?'),
+            array('enunciado'=>'Cuál de nuestros servicios ha utilizado?', 'orden' => 5),
                                  
         ];
 
         //Crear arreglo para preguntas recomendación
          $preguntasRecomendacion = [
             array('enunciado'=>'Recomendaría usted nuestros servicios a otros '.
-            'empresarios o entidades que lo necesiten y les hayan consultado?'),
+            'empresarios o entidades que lo necesiten y les hayan consultado?', 'orden' => 6),
                                
         ];
 
@@ -98,6 +105,7 @@ class EncuestaFixtures extends Fixture
                         $relacion = new EncuestaPregunta();
                         $relacion->setEncuesta($encuesta);
                         $relacion->setPregunta($pregunta);
+                        $relacion->setOrden($preguntasLiteral[$a]['orden']);
 
                         $manager->persist($pregunta);
                         $manager->persist($relacion);
@@ -114,6 +122,7 @@ class EncuestaFixtures extends Fixture
                         $relacion = new EncuestaPregunta();
                         $relacion->setEncuesta($encuesta);
                         $relacion->setPregunta($pregunta);
+                        $relacion->setOrden($preguntasDescripcion[$a]['orden']);
 
                         $manager->persist($pregunta);
                         $manager->persist($relacion);
@@ -131,6 +140,7 @@ class EncuestaFixtures extends Fixture
                         $relacion = new EncuestaPregunta();
                         $relacion->setEncuesta($encuesta);
                         $relacion->setPregunta($pregunta);
+                        $relacion->setOrden($preguntasBandera[$a]['orden']);
 
                         $manager->persist($pregunta);
                         $manager->persist($relacion);
@@ -148,6 +158,7 @@ class EncuestaFixtures extends Fixture
                         $relacion = new EncuestaPregunta();
                         $relacion->setEncuesta($encuesta);
                         $relacion->setPregunta($pregunta);
+                        $relacion->setOrden($preguntasServicio[$a]['orden']);
 
                         $manager->persist($pregunta);
                         $manager->persist($relacion);
@@ -165,6 +176,7 @@ class EncuestaFixtures extends Fixture
                         $relacion = new EncuestaPregunta();
                         $relacion->setEncuesta($encuesta);
                         $relacion->setPregunta($pregunta);
+                        $relacion->setOrden($preguntasRecomendacion[$a]['orden']);
 
                         $manager->persist($pregunta);
                         $manager->persist($relacion);
