@@ -140,6 +140,7 @@ class Renglon
     public function setImagen($imagen)
     {
         $this->imagen = $imagen;
+        return $this;
     }
 
     /**
