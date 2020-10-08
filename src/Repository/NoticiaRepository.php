@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Nota;
+use App\Entity\Noticia;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Nota|null find($id, $lockMode = null, $lockVersion = null)
- * @method Nota|null findOneBy(array $criteria, array $orderBy = null)
- * @method Nota[]    findAll()
- * @method Nota[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Noticia|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Noticia|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Noticia[]    findAll()
+ * @method Noticia[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class NotaRepository extends ServiceEntityRepository
+class NoticiaRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Nota::class);
+        parent::__construct($registry, Noticia::class);
     }
 
     // /**
-    //  * @return Nota[] Returns an array of Nota objects
+    //  * @return Noticia[] Returns an array of Noticia objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class NotaRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Nota
+    public function findOneBySomeField($value): ?Noticia
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

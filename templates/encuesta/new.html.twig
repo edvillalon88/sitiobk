@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="row tb-encuesta-margin">
+    <div class="col-md-2 tb-encuesta-border
+    tb-encuesta-center">
+        {{encuesta.logo}}
+    </div>
+    <div class="col-md-6 tb-encuesta-border
+    tb-encuesta-center">
+        <h4>{{encuesta.nombre}}</h4>
+    </div>
+    <div class="col-md-2 tb-encuesta-border
+    tb-encuesta-center">
+        Código:<br/> {{encuesta.codigo}}
+    </div>
+    <div class="col-md-2 tb-encuesta-border
+    tb-encuesta-center">
+        Rev: {{encuesta.rev}}
+    </div>
+</div>
+
+<div class="row tb-encuesta-margin
+tb-encuesta-justify">
+    <div class="col-md-12">
+        {{encuesta.descripCabecera}}
+    </div>
+</div>
+
+<div class="row tb-encuesta-margin">
+
+    <div class="col-md-8 tb-encuesta-border
+    tb-encuesta-center">
+        Evalúe en la escala del 2 al 5 los siguientes aspectos:
+    </div>
+    <div class="col-md-1 tb-encuesta-border
+    tb-encuesta-right">
+        2 (M)
+    </div>
+    <div class="col-md-1 tb-encuesta-border
+    tb-encuesta-right">
+        3 (R)
+    </div>
+    <div class="col-md-1 tb-encuesta-border
+    tb-encuesta-right">
+        4 (B)
+    </div>
+    <div class="col-md-1 tb-encuesta-border
+    tb-encuesta-right">
+        5 (MB)
+    </div>
+
+    {% for enunciado in preguntas %}
+        {{enunciado.id}}
+    {% endfor %}
+
+    <div class="col-md-12 tb-encuesta-border
+    tb-encuesta-justify">
+        {{encuesta.descripFinal}}
+    </div>
+</div>
+
+{% endblock %}

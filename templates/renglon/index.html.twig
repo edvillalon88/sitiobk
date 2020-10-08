@@ -52,7 +52,7 @@
                   <td>{{ renglon.nombreEn }}</td>
                   <td>{{ renglon.descripcion }}</td>
                   <td>{{ renglon.descripcionEn }}</td>
-                  <td><a href="{{ asset('uploads/imagenes/' ~ renglon.imagen) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ renglon.imagen) }}" /></a></td>             
+                  <td><a target="_blank" href="{{ asset('uploads/imagenes/' ~ renglon.imagen) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ renglon.imagen) }}" /></a></td>             
                   <td >
                     <a class="btn btn-success" href="{{ path('renglon_edit', {'id': renglon.id}) }}">Editar</a>
                     {{ include('renglon/_delete_form.html.twig') }}

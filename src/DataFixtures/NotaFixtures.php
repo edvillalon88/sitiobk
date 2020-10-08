@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Nota;
+use App\Entity\Noticia;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -11,7 +11,7 @@ class NotaFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $nota = new Nota();
+        $nota = new Noticia();
      
         $nota->setFechaHora(null);
      

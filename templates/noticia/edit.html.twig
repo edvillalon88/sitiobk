@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editar Noticia</h1>
+
+    {{ include('noticia/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    <a href="{{ path('noticia_index') }}">Volver</a>
+
+{% endblock %}

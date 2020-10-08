@@ -2,7 +2,7 @@
 
 
 {% block body %}
-    <h1 class="h3 mb-2 text-gray-800">Nota</h1>
+    <h1 class="h3 mb-2 text-gray-800">Noticia</h1>
     <p class="mb-4"></p>
     <div class="card shadow mb-4">
       <div class="card-header py-3 ">
@@ -53,12 +53,13 @@
               {% endif %}
           </div>
           <div class='col-md-6'>
-            <label class='control-label'>Imagen:</label>
-            <label><strong>{{ nota.imagen }}</strong></label>
+            <a target="_blank" href="{{ asset('uploads/imagenes/' ~ nota.imagen) }}">
+              <img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ nota.imagen) }}" />
+            </a>
           </div>
         </div> 
           
-        <a href="{{ path('nota_edit', {'id': 1}) }}">Editar</a>
+        <a href="{{ path('noticia_edit', {'id': 1}) }}">Editar</a>
 
       </div>
     </div>   
