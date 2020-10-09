@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Service\ImageUploader;
 
 /**
  * @Route("/cliente")
@@ -46,7 +47,7 @@ class ClienteController extends AbstractController
     /**
      * @Route("/new", name="cliente_new", methods={"GET","POST"})
      */
-    public function new(Request $request, UserRepository $userRepository): Response
+    public function new(Request $request, UserRepository $userRepository, ImageUploader $imageUploader): Response
     {
         $cliente = new Cliente();
         $form = $this->createForm(AddClienteType::class, $cliente);
@@ -60,6 +61,12 @@ class ClienteController extends AbstractController
                     $cliente->getUsuario(),
                     $cliente->getUsuario()->getPassword()
                 ));
+
+                $imageFile = $form->get('imagen')->getData();
+                if ($imageFile) {
+                    $imageName = $imageUploader->upload($imageFile);
+                    $cliente->setImagen($imageName);
+                }
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($cliente);
@@ -89,12 +96,19 @@ class ClienteController extends AbstractController
     /**
      * @Route("/{id}/edit", name="cliente_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Cliente $cliente): Response
+    public function edit(Request $request, Cliente $cliente, ImageUploader $imageUploader): Response
     {
         $form = $this->createForm(EditClienteType::class, $cliente);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $imageFile = $form->get('imagen')->getData();
+            if ($imageFile) {
+                $imageName = $imageUploader->upload($imageFile);
+                $cliente->setImagen($imageName);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('cliente_index');
