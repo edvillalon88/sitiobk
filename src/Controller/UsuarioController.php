@@ -21,7 +21,7 @@ class UsuarioController extends AbstractController
          $this->passwordEncoder = $passwordEncoder;
     }
     /**
-     * @Route("/usuario", name="usuario")
+     * @Route("/admin/usuario", name="usuario")
      */
     public function index(UserRepository $userRepository)
     {

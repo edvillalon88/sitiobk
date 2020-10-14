@@ -26,9 +26,16 @@ class ProyectoTipo
      */
     private $proyectos;
 
+    /**
+     * Many Proyectos has One Tipo.
+     * @ORM\OneToMany(targetEntity="Galeria", mappedBy="tipo", cascade={"remove"})
+     */
+    private $galerias;
+
     public function __construct()
     {
         $this->proyectos = new ArrayCollection();
+        $this->galerias = new ArrayCollection();
     }
 
     /**
@@ -78,6 +85,22 @@ class ProyectoTipo
     {
         $this->proyectos = $proyectos;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getGalerias()
+    {
+        return $this->galerias;
+    }
+
+    /**
+     * @param mixed $galerias
+     */
+    public function setGalerias($galerias)
+    {
+        $this->galerias = $galerias;
+    }    
 
     public function __toString()
     {

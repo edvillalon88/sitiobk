@@ -46,8 +46,23 @@
         <div class='col-md-6'>
             {{ form_label(form.renglon) }}
             {{ form_widget(form.renglon) }}
-        </div>                        
-    </div>     
+        </div>   
+        <div class='col-md-6'>
+            {{ form_label(form.imagen1) }}
+            {{ form_widget(form.imagen1) }}
+        </div>                      
+    </div>  
+    
+    <div class='row form-group'>
+        <div class='col-md-6'>
+            {{ form_label(form.imagen2) }}
+            {{ form_widget(form.imagen2) }}
+        </div>   
+        <div class='col-md-6'>
+            {{ form_label(form.imagen3) }}
+            {{ form_widget(form.imagen3) }}
+        </div>                      
+    </div> 
    
     <button class="btn btn-primary ">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}

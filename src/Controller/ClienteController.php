@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Service\ImageUploader;
 
 /**
- * @Route("/cliente")
+ * @Route("/admin/cliente")
  */
 class ClienteController extends AbstractController
 {

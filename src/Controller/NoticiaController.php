@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\ImageUploader;
 
 /**
- * @Route("/noticia")
+ * @Route("/admin/noticia")
  */
 class NoticiaController extends AbstractController
 {
@@ -27,7 +27,7 @@ class NoticiaController extends AbstractController
         if(empty($nota)) {
             $nota = new Noticia();
      
-            $nota->setFechaHora(null);
+            $nota->setFechaHora(new \DateTime());
          
             $nota->setTitulo('');
             $nota->setTituloEn('');

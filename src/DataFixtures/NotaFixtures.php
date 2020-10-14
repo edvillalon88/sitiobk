@@ -13,7 +13,7 @@ class NotaFixtures extends Fixture
     {
         $nota = new Noticia();
      
-        $nota->setFechaHora(null);
+        $nota->setFechaHora(new \DateTime());
      
         $nota->setTitulo('');
         $nota->setTituloEn('');

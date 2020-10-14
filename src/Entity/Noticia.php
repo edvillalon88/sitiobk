@@ -39,7 +39,7 @@ class Noticia
     /** @ORM\Column(type="text") */
     private $contenidoEn;
 
-    /** @ORM\Column(type="string", length=180) */
+    /** @ORM\Column(type="string", length=180, nullable=true) */
     private $imagen;
 
     public function __construct()

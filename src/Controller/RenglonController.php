@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\ImageUploader;
 
 /**
- * @Route("/renglon")
+ * @Route("/admin/renglon")
  */
 class RenglonController extends AbstractController
 {

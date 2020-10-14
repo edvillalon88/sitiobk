@@ -35,6 +35,15 @@ class Proyecto
     /** @ORM\Column(type="string", length=180, nullable=true) */
     private $alcance;
 
+    /** @ORM\Column(type="string", length=180, nullable=true) */
+    private $imagen1;
+
+    /** @ORM\Column(type="string", length=180, nullable=true) */
+    private $imagen2;
+
+    /** @ORM\Column(type="string", length=180, nullable=true) */
+    private $imagen3;
+
     /**
      * @ORM\ManyToOne(targetEntity="ProyectoTipo", inversedBy="proyectos", cascade={"persist"})
      * @ORM\JoinColumn(name="proyecto_tipo_id", referencedColumnName="id")
@@ -146,6 +155,54 @@ class Proyecto
     public function setAlcance($alcance)
     {
         $this->alcance = $alcance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImagen1()
+    {
+        return $this->imagen1;
+    }
+
+    /**
+     * @param mixed $imagen1
+     */
+    public function setImagen1($imagen1)
+    {
+        $this->imagen1 = $imagen1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImagen2()
+    {
+        return $this->imagen2;
+    }
+
+    /**
+     * @param mixed $imagen2
+     */
+    public function setImagen2($imagen2)
+    {
+        $this->imagen2 = $imagen2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImagen3()
+    {
+        return $this->imagen3;
+    }
+
+    /**
+     * @param mixed $imagen3
+     */
+    public function setImagen3($imagen3)
+    {
+        $this->imagen3 = $imagen3;
     }
 
     /**

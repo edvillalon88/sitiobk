@@ -10,9 +10,10 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\ImageUploader;
 
 /**
- * @Route("/proyecto")
+ * @Route("/admin/proyecto")
  */
 class ProyectoController extends AbstractController
 {
@@ -30,7 +31,7 @@ class ProyectoController extends AbstractController
     /**
      * @Route("/new", name="proyecto_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, ImageUploader $imageUploader): Response
     {
         $proyecto = new Proyecto();
         $form = $this->createForm(ProyectoType::class, $proyecto);
@@ -40,6 +41,25 @@ class ProyectoController extends AbstractController
             if ($form->isValid()) {
 
                 $entityManager = $this->getDoctrine()->getManager();
+
+                $imageFile1 = $form->get('imagen1')->getData();
+                if ($imageFile1) {
+                    $imageName1 = $imageUploader->upload($imageFile1);
+                    $proyecto->setImagen1($imageName1);
+                }
+
+                $imageFile2 = $form->get('imagen2')->getData();
+                if ($imageFile2) {
+                    $imageName2 = $imageUploader->upload($imageFile2);
+                    $proyecto->setImagen2($imageName2);
+                }
+
+                $imageFile3 = $form->get('imagen3')->getData();
+                if ($imageFile3) {
+                    $imageName3 = $imageUploader->upload($imageFile3);
+                    $proyecto->setImagen3($imageName3);
+                }
+
                 $entityManager->persist($proyecto);
                 $entityManager->flush();
     
@@ -75,6 +95,25 @@ class ProyectoController extends AbstractController
         if($form->isSubmitted()){
 
             if ($form->isValid()) {
+
+                $imageFile1 = $form->get('imagen1')->getData();
+                if ($imageFile1) {
+                    $imageName1 = $imageUploader->upload($imageFile1);
+                    $proyecto->setImagen1($imageName1);
+                }
+
+                $imageFile2 = $form->get('imagen2')->getData();
+                if ($imageFile2) {
+                    $imageName2 = $imageUploader->upload($imageFile2);
+                    $proyecto->setImagen2($imageName2);
+                }
+
+                $imageFile3 = $form->get('imagen3')->getData();
+                if ($imageFile3) {
+                    $imageName3 = $imageUploader->upload($imageFile3);
+                    $proyecto->setImagen3($imageName3);
+                }
+
                 $this->getDoctrine()->getManager()->flush();
     
                 return $this->redirectToRoute('proyecto_index');

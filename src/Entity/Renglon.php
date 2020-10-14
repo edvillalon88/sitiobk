@@ -32,7 +32,7 @@ class Renglon
     /** @ORM\Column(type="text") */
     private $descripcionEn;
 
-    /** @ORM\Column(type="string", length=180) */
+    /** @ORM\Column(type="string", length=180, nullable=true) */
     private $imagen;
 
     /**
