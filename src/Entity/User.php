@@ -175,6 +175,11 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getNombreApellidos()
+    {
+        return $this->nombre . " " . $this->apellidos;
+    }
+
     /**
      * Get the value of id
      *

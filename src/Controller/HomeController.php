@@ -42,7 +42,14 @@ class HomeController extends AbstractController
                 'client_name' => ''
             ]);
         }
-        
-
     }
+
+    /**
+     * @Route("/mercadotecnia", name="mercadotecnia")
+     */
+    public function mercado()
+    {
+        return $this->render('home/mercado.html.twig', []);
+    }
+
 }
