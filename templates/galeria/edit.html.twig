@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editar Galería</h1>
+
+    {{ include('galeria/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    <a href="{{ path('galeria_index') }}">Volver a listado</a>
+
+{% endblock %}

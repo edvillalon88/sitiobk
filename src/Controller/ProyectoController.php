@@ -88,7 +88,7 @@ class ProyectoController extends AbstractController
     /**
      * @Route("/{id}/edit", name="proyecto_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Proyecto $proyecto): Response
+    public function edit(Request $request, Proyecto $proyecto, ImageUploader $imageUploader): Response
     {
         $form = $this->createForm(ProyectoType::class, $proyecto);
         $form->handleRequest($request);

@@ -57,11 +57,11 @@
                   <td>{{ proyecto.descripcion }}</td>
                   <td>{{ proyecto.alcance }}</td>
                   <td>{{ proyecto.tipo.tipo }}</td>
-                  <td>{{ proyecto.renglon.nombre }}</td>  
+                  <td>{{ proyecto.renglon == null ? "": proyecto.renglon.nombre }}</td>  
                   <td>
-                    <a target="_blank" href="{{ asset('uploads/imagenes/' ~ proyecto.imagen1) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ cliente.imagen1) }}" /></a> &nbsp;
-                    <a target="_blank" href="{{ asset('uploads/imagenes/' ~ proyecto.imagen2) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ cliente.imagen2) }}" /></a> &nbsp;
-                    <a target="_blank" href="{{ asset('uploads/imagenes/' ~ proyecto.imagen3) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ cliente.imagen3) }}" /></a>
+                    <a target="_blank" href="{{ asset('uploads/imagenes/' ~ proyecto.imagen1) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ proyecto.imagen1) }}" /></a> &nbsp;
+                    <a target="_blank" href="{{ asset('uploads/imagenes/' ~ proyecto.imagen2) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ proyecto.imagen2) }}" /></a> &nbsp;
+                    <a target="_blank" href="{{ asset('uploads/imagenes/' ~ proyecto.imagen3) }}"><img class="img-thumbnail rounded" style="max-width:100px" src="{{ asset('uploads/imagenes/' ~ proyecto.imagen3) }}" /></a>
                   </td>             
                   <td >
                     <a class="btn btn-success" href="{{ path('proyecto_edit', {'id': proyecto.id}) }}">Editar</a>
