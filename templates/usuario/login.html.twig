@@ -38,10 +38,6 @@
 </head>
 <body class="text-center">
 
-{% if error %}
-  <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
-
 {% if app.user %}
   <div class="mb-3 text-center">
     Estas logueado como {{ app.user.username }}, <a href="{{ path('app_logout') }}">Salir</a>
@@ -50,7 +46,7 @@
 
 <form method="post" class="form-signin">
   <img class="mb-4" src="../images/logo.png" alt="">
-  <h2 >Rellene los campos</h2>
+  
   <label for="inputEmail" class="sr-only">Correo Electrónico</label>
   <input type="email" value="{{ last_username }}" name="username" id="inputUsername" class="form-control"
          placeholder="Email address" required autofocus>
@@ -59,7 +55,11 @@
   <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
 
   <button class="btn btn-lg btn-block btn-danger" type="submit">Entrar</button>
-  <a href="#" class="mt-5 mb-3 text-muted">Volver al sitio</a>
+  <a href="{{ path('home') }}" class="mt-5 mb-3 text-muted">Volver al sitio</a>
+
+  {% if error %}
+  <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+  {% endif %}
 </form>
 </body>
 </html>

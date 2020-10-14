@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto text-center" id="menu">
           <li class="nav-item active">
-            <a class="nav-link text-uppercase" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-uppercase" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-uppercase" href="#">Mercadotecnia</a>
@@ -44,9 +44,18 @@
 			 <li class="dropdown-divider"></li>
         </ul>
 		  <ul class="navbar-nav text-center" id="usuario">
-		  <li>Bienvenido Usuario <a href="#" data-toggle="modal" data-target="#modalRegistro" >Login</a> <a href="#" data-toggle="modal" data-target="#modalEncuesta">Llenar Encuesta</a></li>
-			  <li class="dropdown-divider"></li>
-		  </ul>
+			{% if app.user %}
+		  	<li>Bienvenido {{ client_name }} 
+				<a href="{{ path('app_logout') }}">Cerrar Sesión</a>
+				<a href="#">Llenar Encuesta</a>
+			</li>
+			{% else %}
+			<li>
+				<a href="{{ path('app_login') }}">Iniciar Sesión</a>
+			</li>
+			{% endif %}
+			<li class="dropdown-divider"></li>
+		</ul>
 		 
 		  <ul class="navbar-nav text-center" id="idiomas">
 		  <li><a href="#"><img src="{{asset('images/esp.png')}}" alt="espanish" /></a><a href="#"><img src="{{asset('images/eng.png')}}" alt="english" /></a></li>
@@ -63,12 +72,26 @@
 		  <div class="row">
           <div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-left ">
 			  <h2>Sitios de interes</h2>
-			  <ul>
-			  <li><a href="#">Nombre del Sitio</a> | Descripcion del sitio</li>
-				  <li><a href="#">Nombre del Sitio</a> | Descripcion del sitio</li>
-				  <li><a href="#">Nombre del Sitio</a> | Descripcion del sitio</li>
-				  <li><a href="#">Nombre del Sitio</a> | Descripcion del sitio</li>
-			  </ul>
+			 <ul>
+				 
+		<li><a target="_blank" href="https://www.sime.cu/es">GESIME</a></li>
+         <li><a target="_blank" href="https://www.mindus.gob.cu/es">Ministerio de Industria</a></li>               
+        
+        <li><a target="_blank" href="https://www.mincex.gob.cu">Ministerio de Comercio Exterior</a></li>
+                        
+        <li><a target="_blank" href="http://www.minrex.gob.cu/es">Ministerio de Relaciones Exteriores</a></li>
+                        
+        <li><a target="_blank" href="http://www.zedmariel.com/es">Zona Especial de Desarrollo Mariel</a></li>
+                        
+        <li><a target="_blank" href="http://www.procuba.cu/es">Centro de Promoción Comercio Exterior</a></li>
+                        
+        <li><a target="_blank" href="http://misiones.minrex.gob.cu/es/camara-de-comercio">Cámara de Comercio</a></li>
+        
+    </ul>
+			  
+			  
+
+			  
 			  </div>
 			  <div class="col-md-12 col-sm-12 col-lg-4 text-center" id="redes-footer">
 				  <h2>Siguenos en las redes</h2>
@@ -284,5 +307,28 @@ hayan consultado?</p>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap-4.3.1.js')}}"></script>
 		<script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
-  </body>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  
+	<script type="text/javascript">
+		var myCenter=new google.maps.LatLng(23.129668993245872, -82.40740561867537);
+		 
+		var marker = new google.maps.Marker({
+				position: myCenter
+				,});
+		 
+		window.onload = function() {
+				var mapOptions = {
+				  center: myCenter,
+				  zoom: 16,
+				  mapTypeId: google.maps.MapTypeId.ROADMAP,
+				  panControl: false,
+				  zoomControl: false,
+				  scaleControl: false,
+				  };
+				var map = new google.maps.Map(document.getElementById("mapaGoogle"), mapOptions);
+			marker.setMap(map);
+				};
+		</script>
+
+</body>
 </html>

@@ -36,12 +36,12 @@ class UsuarioController extends AbstractController
     /**
      * @Route("/login", name="login")
      */
-    public function login()
+    /*public function login()
     {
         return $this->render('usuario/login.html.twig', [
             'controller_name' => 'UsuarioController',
         ]);
-    }
+    }*/
 
     /**
      * @Route("/perfil/{id}", name="perfil_edit",methods={"GET","POST"})
