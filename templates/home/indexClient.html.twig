@@ -73,75 +73,34 @@
         <div id="carrouselRenglones" class="carousel slide" data-ride="carousel" data-interval="false">
 
           <div class="carousel-inner" role="listbox">
+            
+            
             <div class="carousel-item active ">
               <div class="row">
                 <div class="col-1 d-none d-md-block d-lg-block  d-xs-block"></div>
+
+                {% for renglon in renglones %}
                 <div class="col-md-3 col-lg-3 col-sm-12 col-xs-4 ">
-                  <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
+                  <div class="card "> <img class="card-img-top" src="{{ asset('uploads/imagenes/' ~ renglon.imagen) }}" alt="nombre del renglon">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
+                      <h5 class="card-title">{{renglon.nombre}}</h5>
+                      <p class="card-text">{{renglon.descripcion}}</p>
                     </div>
                   </div>
                 </div>
+                {% else %}
                 <div class="col-md-3 col-lg-3 col-sm-12 col-xs-4 ">
-                  <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
+                  <div class="card "> 
+                      <div class="card-body">
+                      <h5 class="card-title"></h5>
+                      <p class="card-text">No hay registros</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-4 ">
-                  <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    </div>
-                  </div>
-                </div>
+                {% endfor %}
                 <div class="col-1 d-none d-md-block d-lg-block  d-xs-block"></div>
               </div>
             </div>
-
-            <div class="carousel-item ">
-              <div class="row">
-                <div class="col-1 d-none d-md-block d-lg-block  d-xs-block"></div>
-                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-4 ">
-                  <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-4 ">
-                  <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-4 ">
-                  <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-1 d-none d-md-block d-lg-block  d-xs-block"></div>
-              </div>
-            </div>
-
-
 
           </div>
           <a class="carousel-control-prev" href="#carrouselRenglones" role="button" data-slide="prev"> <span
@@ -156,33 +115,14 @@
 <section id="noticia" class="resalt-section">
   <div class="container myContainer">
     <div class="row">
-      <div class="col-xl-4 col-lg-12 text-sm-center "><img src="images/img-noticia.jpg" class="img-fluid"
+      <div class="col-xl-4 col-lg-12 text-sm-center "><img src="{{ asset('uploads/imagenes/' ~ noticia.imagen) }}" class="img-fluid"
           alt="Placeholder image"></div>
       <div class="col-xl-8 col-lg-12 text-md-left text-sm-center">
-        <h2>Titulo de la noticia</h2>
-        <h4>Subtitulo descriptivo de la noticia</h4>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-          dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-          suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-          vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-          et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
-          facilisi.
-          Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tinci Lorem ipsum
-          dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-          aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-          nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-          dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-        <ol>
-          <li>Nombre del elemento</li>
-        </ol>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-          dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-          suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-        <ul>
-          <li>Nombre del elemento</li>
-        </ul>
-        <span>Fecha: 14 de Agosto, 2020</span>
+        <h2>{{noticia.titulo}}</h2>
+        <h4>{{noticia.subtitulo}}</h4>
+        <p>{{noticia.contenido}}</p>
+
+        <span>Fecha: {{noticia.fechaHora | date("d M Y")}}</span>
       </div>
     </div>
   </div>
@@ -193,21 +133,12 @@
     <p>Contamos con una amplia cartera de clientes entre los que podemos destacar (Listado de nombre de clientes
       separados por coma)</p>
     <ul class="list-client">
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-      <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
+      {% for cliente in clientes %}
+        <li><a href="#"><img src="{{ asset('uploads/imagenes/' ~ cliente.imagen) }}" width="160" height="160" 
+          alt="{{cliente.usuario.nombreApellidos}}" title="{{cliente.usuario.nombreApellidos}}" /></a></li>
+      {% else %}
+          <li>No hay registros</li>
+      {% endfor %}
 
     </ul>
   </div>

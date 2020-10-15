@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Entity\EnumEstado;
 
 use App\Repository\ProveedorRepository;
+use App\Repository\RenglonRepository;
+use App\Repository\ClienteRepository;
+use App\Repository\NoticiaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,7 +18,9 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(RenglonRepository $renglonRep,
+        ClienteRepository $clienteRep,
+        NoticiaRepository $noticiaRep)
     {
         if(!empty($this->getUser())) {
 
@@ -32,15 +37,20 @@ class HomeController extends AbstractController
                     'pendientes'=>0
                 ]);
             }
+            
             else {
                 return $this->render('home/indexClient.html.twig', [
-                    'client_name' => 'Hello Loco'
+                    'renglones' => $renglonRep->findAll(),
+                    'clientes' => $clienteRep->findAll(),
+                    'noticia' => $noticiaRep->find(1)
                 ]);
             }
 
         } else {
             return $this->render('home/indexClient.html.twig', [
-                'client_name' => ''
+                'renglones' => $renglonRep->findAll(),
+                'clientes' => $clienteRep->findAll(),
+                'noticia' => $noticiaRep->find(1)
             ]);
         }
     }
