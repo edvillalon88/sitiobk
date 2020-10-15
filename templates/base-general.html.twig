@@ -1,334 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BK import - export</title>
-    <!-- Bootstrap -->
-    <link href="{{asset('css/bootstrap-4.3.1.css')}}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.fancybox.min.css')}}">  
-	  <link href="{{asset('css/style.css')}}" rel="stylesheet">
-	  
-	  <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"> 
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-expand-xl navbar-dark redBg">
-      <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" /></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center" id="menu">
-          <li class="nav-item active">
-            <a class="nav-link text-uppercase" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase" href="{{ path('mercadotecnia') }}">Mercadotecnia</a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">Importaciones</a>
-          </li>
-			
-			<li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">Exportaciones</a>
-          </li>
-			
-			<li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">Log&iacute;stica</a>
-          </li>
-			<li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">Contacto</a>
-          </li>
-			 <li class="dropdown-divider"></li>
-        </ul>
-		  <ul class="navbar-nav text-center" id="usuario">
-			{% if app.user %}
-		  	<li>Bienvenido {{ app.user.nombreApellidos }} 
-				<a href="{{ path('app_logout') }}">Cerrar Sesión</a>
-				<a href="#">Llenar Encuesta</a>
-			</li>
-			{% else %}
-			<li>
-				<a href="{{ path('app_login') }}">Iniciar Sesión</a>
-			</li>
-			{% endif %}
-			<li class="dropdown-divider"></li>
-		</ul>
-		 
-		  <ul class="navbar-nav text-center" id="idiomas">
-		  <li><a href="#"><img src="{{asset('images/esp.png')}}" alt="espanish" /></a><a href="#"><img src="{{asset('images/eng.png')}}" alt="english" /></a></li>
-		  </ul>
-      </div>
-    </nav>
 
-    {% block body %}
-    {% endblock %}
-   
-    <footer class="text-lg-center">
-      <div class="fluid-container">
-		<div class="container myContainer">
-		  <div class="row">
-          <div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-left ">
-			  <h2>Sitios de interes</h2>
-			 <ul>
-				 
-		<li><a target="_blank" href="https://www.sime.cu/es">GESIME</a></li>
-         <li><a target="_blank" href="https://www.mindus.gob.cu/es">Ministerio de Industria</a></li>               
-        
-        <li><a target="_blank" href="https://www.mincex.gob.cu">Ministerio de Comercio Exterior</a></li>
-                        
-        <li><a target="_blank" href="http://www.minrex.gob.cu/es">Ministerio de Relaciones Exteriores</a></li>
-                        
-        <li><a target="_blank" href="http://www.zedmariel.com/es">Zona Especial de Desarrollo Mariel</a></li>
-                        
-        <li><a target="_blank" href="http://www.procuba.cu/es">Centro de Promoción Comercio Exterior</a></li>
-                        
-        <li><a target="_blank" href="http://misiones.minrex.gob.cu/es/camara-de-comercio">Cámara de Comercio</a></li>
-        
-    </ul>
-			  
-			  
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BK import - export</title>
+	<!-- Bootstrap -->
+	<link href="{{asset('css/bootstrap-4.3.1.css')}}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.fancybox.min.css')}}">
+	<link href="{{asset('css/style.css')}}" rel="stylesheet">
 
-			  
-			  </div>
-			  <div class="col-md-12 col-sm-12 col-lg-4 text-center" id="redes-footer">
-				  <h2>Siguenos en las redes</h2>
-				  <a href="#"><img src="{{asset('images/btn-facebook.png')}}" /></a>
-				  <a href="#"><img src="{{asset('images/btn-twitter.png')}}" /></a>
-				  <p>Siguenos en las redes sociales y mantente informado de eventos y noticias importantes</p>
-			  
-			  </div>
-			  <div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-right">
-			    <h2>Cont&aacute;ctenos</h2>
-		        <form id="formContactFooter">
-			        <div class="form-group">
-			             <input type="text" class="form-control" id="inputNombreFooter" placeholder="Nombre">
-			        </div>
-					<div class="form-group">
-			             <input type="email" class="form-control" id="inputEmailFooter" placeholder="Email">
-			        </div>
-			        <div class="form-group">
-			             <textarea></textarea>
-			        </div>
-			        <div class="form-group">
-			        <button type="submit" class="btn btn-primary">Submit</button>
-					</div>
-		        </form>
-              </div>
-        </div>
-       
-      </div>
-		  </div>
-		 <div class="row">
-          <div class="col-12 text-center">
-            <p>Copyright © {{ "now"|date("Y") }}</p>
-          </div>
-        </div>
-    </footer>
-		<div class="modal fade " id="modalEncuesta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-70" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalEncuestaLabel">Encuesta (Nombre de Cliente)</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		 <div class="container-fluid" id="encuestaPreguntas">
-		  <h2>Evalue</h2>
-			  <div class="row">
-			  	<div class="col-6"><p>Atencion de nuestro personal en recepción o por teléfono.</p></div>
-				  <div class="col-6">
-				  	<ul data-cat="atencion-x-telefono" style="margin-top: 15px;">
-					  <li class="active" data-value="2"><a href="#"><img src="images/encuesta-1.png" /></a></li>
-					  <li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-					  <li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-					  <li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-						</ul>
-				  </div>
-			  </div>
-			  <div class="row">
-			  	<div class="col-6"><p>Eficacia de la entrega del material contratado.</p></div>
-				   <div class="col-6" style="vertical-align: middle;">
-				  	<ul data-cat="eficacia-entrega" style="margin-top: 20px;">
-					  <li class="active" data-value="2"><a href="#"><img src="images/encuesta-1.png" /></a></li>
-					  <li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-					  <li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-					  <li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-						</ul>
-				  </div>
-			  </div>
-			  <div class="row">
-			  	<div class="col-6"><p>Desempeño y profesionalidad del personal que lo atendió.</p></div>
-				  <div class="col-6">
-				  	<ul data-cat="profesionalidad-personal" style="margin-top: 20px;">
-					  <li class="active" data-value="2"><a href="#"><img src="images/encuesta-1.png" /></a></li>
-					  <li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-					  <li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-					  <li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-						</ul>
-				  </div>
-			  </div>
-			  <div class="row">
-			  	<div class="col-6"><p>Eficacia del proceso de facturación.</p></div>
-				  <div class="col-6">
-				  	<ul data-cat="eficacia-factura" style="margin-top: 5px;">
-					  <li class="active" data-value="2"><a href="#"><img src="images/encuesta-1.png" /></a></li>
-					  <li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-					  <li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-					  <li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-						</ul>
-				  </div>
-			  </div>
-			 <div class="row">
-			  	<div class="col-6"><p>Calidad del servicio recibido.</p></div>
-				  <div class="col-6" style="vertical-align: middle;">
-				  	<ul data-cat="calidad-servicio" style="margin-top: 7px;">
-					  <li class="active" data-value="2"><a href="#"><img src="images/encuesta-1.png" /></a></li>
-					  <li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-					  <li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-					  <li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-						</ul>
-				  </div>
-			  </div>
-			  <div class="row">
-			  	<div class="col-6"><p>Satisfacci&oacute;n con el servicio prestado</p></div>
-				  <div class="col-6">
-				  	<ul data-cat="satisf-servicio" style="margin-top: 7px;">
-					  <li class="active" data-value="2"><a href="#"><img src="images/encuesta-1.png" /></a></li>
-					  <li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-					  <li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-					  <li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-						</ul>
-				  </div>
-			  </div>
-			  </div>
-		  <div class="container-fluid">
-			 <div class="row">
-				 <div class="col-12 text-center">
-				 	<h2>Total: <span class="red-text">30</span> pts</h2>
-				 </div>
-			 </div>
-			 <div class="row text-left">
-				 <div class="col-12 text-center">
-			 	   <form id="formEncuesta" >
-				 	  <div class="form-group row">
-   						 <label for="inputEspecInsatis" class="col-sm-4 col-form-label">Espectativas insatifechas:</label>
-   						 <div class="col-sm-8">
-     						 <input type="text" class="form-control" id="inputEspecInsatis">
-   					 	 </div>
-  					  </div>
-					   <div class="form-group row">
-						   <label  class="col-sm-6 col-form-label">Solicitaría nuevamente nuestros servicios:</label>
-						   <div class="col-1">Si</div>
-						   <div class="col-1"><input type="radio" id="inputSolicServSi" name="input-solic" checked="checked"></div>
-						    <div class="col-1">No</div>
-						   <div class="col-1"><input type="radio" id="inputSolicServNo" name="input-solic"></div>
-						   <div class="col-2"></div>
-					   </div>
-					   <div class="form-group row text-left">
-					   			<label for="inputAspMejorar" class="col-sm-12 col-form-label">Aspectos que se podrían mejorar:</label>
-   								 <input type="text" class="form-control" id="inputAspMejorar">
-					   </div>
-					   <div class="form-group row text-left">
-					   			<label class="col-sm-6 col-form-label">Cual de nuestros servicios ha usado:</label>
-   							<div class="col-sm-2"><input type="checkbox" id="servUsadoImp">Importacion</div>	
-						   <div class="col-sm-2"><input type="checkbox" id="servUsadoExp">Exportacion</div>	
-						   <div class="col-sm-1"><input type="checkbox" id="servUsadoOtros">Otros</div>	
-						   
-					   </div>
-					   <div class="form-group row text-left">
-					   <p>Recomendaría usted nuestros servicios a otros empresarios o entidades que los necesiten y les
-hayan consultado?</p>
-					   </div>
-					   <div class="form-group row text-left">
-					   	<div class="col-sm-4"><input type="radio" name="input-recomenda" checked="checked" id="siRecomend"> Sin duda que lo har&iacute;a</div>	
-						   <div class="col-sm-4"><input type="radio" name="input-recomenda" id="noRecomend"> No lo har&iacute;a</div>	
-						   <div class="col-sm-4"><input type="radio" name="input-recomenda" id="talvezRecomend"> Lo pensar&iacute;a</div>
-					   </div>
-			 	   </form>
-                 </div>
-			 </div>
-		 </div>
+	<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<nav class="navbar fixed-top navbar-expand-xl navbar-dark redBg">
+		<a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" /></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto text-center" id="menu">
+				<li class="nav-item active">
+					<a class="nav-link text-uppercase" href="{{ path('home') }}">Home <span
+							class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-uppercase" href="{{ path('mercadotecnia') }}">Mercadotecnia</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-uppercase" href="{{ path('importaciones') }}">Importaciones</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-uppercase" href="{{ path('exportaciones') }}">Exportaciones</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-uppercase" href="{{ path('logistica') }}">Log&iacute;stica</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-uppercase" href="{{ path('contacto') }}">Contacto</a>
+				</li>
+				<li class="dropdown-divider"></li>
+			</ul>
+			<ul class="navbar-nav text-center" id="usuario">
+				{% if app.user %}
+				<li>{{ app.user.nombreApellidos }}
+					<a href="{{ path('app_logout') }}">Cerrar Sesión</a>
+					<a href="#">Llenar Encuesta</a>
+				</li>
+				{% else %}
+				<li>
+					<a href="{{ path('app_login') }}">Iniciar Sesión</a>
+				</li>
+				{% endif %}
+				<li class="dropdown-divider"></li>
+			</ul>
+
+			<ul class="navbar-nav text-center" id="idiomas">
+				<li><a href="#"><img src="{{asset('images/esp.png')}}" alt="espanish" /></a><a href="#"><img
+							src="{{asset('images/eng.png')}}" alt="english" /></a></li>
+			</ul>
 		</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-		
-		<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="registroModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" >Registro</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-         <form id="formRegistro">
-			 <div class="form-group">
-    <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" class="form-control" id="inputRegistroNombre" aria-describedby="emailHelp" placeholder="Nombre de la empresa">
-    <small id="emailHelp" class="form-text text-muted">Nombre de la empresa a la que representa</small>
-  </div>
-			 
-  <div class="form-group">
-    <label for="inputRegistroEmail">Email</label>
-    <input type="email" class="form-control" id="inputRegistroEmail" aria-describedby="emailHelp" placeholder="Correo electr&oacute;nico">
-    
-  </div>
-  <div class="form-group">
-    <label for="inputRegistroPass">Contrase&ntilde;a</label>
-    <input type="password" class="form-control" id="inputRegistroPass" placeholder="Password">
-  </div>
- 
- </form>
-     
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-		
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{asset('js/popper.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap-4.3.1.js')}}"></script>
-		<script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  
+	</nav>
+
+	{% block body %}
+	{% endblock %}
+
+	<footer class="text-lg-center">
+		<div class="fluid-container">
+			<div class="container myContainer">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-left ">
+						<h2>Sitios de interes</h2>
+						<ul>
+
+							<li><a target="_blank" href="https://www.sime.cu/es">GESIME</a></li>
+							<li><a target="_blank" href="https://www.mindus.gob.cu/es">Ministerio de Industria</a></li>
+
+							<li><a target="_blank" href="https://www.mincex.gob.cu">Ministerio de Comercio Exterior</a>
+							</li>
+
+							<li><a target="_blank" href="http://www.minrex.gob.cu/es">Ministerio de Relaciones
+									Exteriores</a></li>
+
+							<li><a target="_blank" href="http://www.zedmariel.com/es">Zona Especial de Desarrollo
+									Mariel</a></li>
+
+							<li><a target="_blank" href="http://www.procuba.cu/es">Centro de Promoción Comercio
+									Exterior</a></li>
+
+							<li><a target="_blank" href="http://misiones.minrex.gob.cu/es/camara-de-comercio">Cámara de
+									Comercio</a></li>
+
+						</ul>
+
+
+
+
+					</div>
+					<div class="col-md-12 col-sm-12 col-lg-4 text-center" id="redes-footer">
+						<h2>Siguenos en las redes</h2>
+						<a href="#"><img src="{{asset('images/btn-facebook.png')}}" /></a>
+						<a href="#"><img src="{{asset('images/btn-twitter.png')}}" /></a>
+						<p>Siguenos en las redes sociales y mantente informado de eventos y noticias importantes</p>
+
+					</div>
+					<div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-right">
+						<h2>Cont&aacute;ctenos</h2>
+						<form id="formContactFooter">
+							<div class="form-group">
+								<input type="text" class="form-control" id="inputNombreFooter" placeholder="Nombre">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" id="inputEmailFooter" placeholder="Email">
+							</div>
+							<div class="form-group">
+								<textarea></textarea>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center">
+				<p>Copyright © {{ "now"|date("Y") }}</p>
+			</div>
+		</div>
+	</footer>
+	<div class="modal fade " id="modalEncuesta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-70" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalEncuestaLabel">Encuesta (Nombre de Cliente)</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid" id="encuestaPreguntas">
+						<h2>Evalue</h2>
+						<div class="row">
+							<div class="col-6">
+								<p>Atencion de nuestro personal en recepción o por teléfono.</p>
+							</div>
+							<div class="col-6">
+								<ul data-cat="atencion-x-telefono" style="margin-top: 15px;">
+									<li class="active" data-value="2"><a href="#"><img
+												src="images/encuesta-1.png" /></a></li>
+									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
+									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
+									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<p>Eficacia de la entrega del material contratado.</p>
+							</div>
+							<div class="col-6" style="vertical-align: middle;">
+								<ul data-cat="eficacia-entrega" style="margin-top: 20px;">
+									<li class="active" data-value="2"><a href="#"><img
+												src="images/encuesta-1.png" /></a></li>
+									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
+									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
+									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<p>Desempeño y profesionalidad del personal que lo atendió.</p>
+							</div>
+							<div class="col-6">
+								<ul data-cat="profesionalidad-personal" style="margin-top: 20px;">
+									<li class="active" data-value="2"><a href="#"><img
+												src="images/encuesta-1.png" /></a></li>
+									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
+									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
+									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<p>Eficacia del proceso de facturación.</p>
+							</div>
+							<div class="col-6">
+								<ul data-cat="eficacia-factura" style="margin-top: 5px;">
+									<li class="active" data-value="2"><a href="#"><img
+												src="images/encuesta-1.png" /></a></li>
+									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
+									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
+									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<p>Calidad del servicio recibido.</p>
+							</div>
+							<div class="col-6" style="vertical-align: middle;">
+								<ul data-cat="calidad-servicio" style="margin-top: 7px;">
+									<li class="active" data-value="2"><a href="#"><img
+												src="images/encuesta-1.png" /></a></li>
+									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
+									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
+									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<p>Satisfacci&oacute;n con el servicio prestado</p>
+							</div>
+							<div class="col-6">
+								<ul data-cat="satisf-servicio" style="margin-top: 7px;">
+									<li class="active" data-value="2"><a href="#"><img
+												src="images/encuesta-1.png" /></a></li>
+									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
+									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
+									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12 text-center">
+								<h2>Total: <span class="red-text">30</span> pts</h2>
+							</div>
+						</div>
+						<div class="row text-left">
+							<div class="col-12 text-center">
+								<form id="formEncuesta">
+									<div class="form-group row">
+										<label for="inputEspecInsatis" class="col-sm-4 col-form-label">Espectativas
+											insatifechas:</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="inputEspecInsatis">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-6 col-form-label">Solicitaría nuevamente nuestros
+											servicios:</label>
+										<div class="col-1">Si</div>
+										<div class="col-1"><input type="radio" id="inputSolicServSi" name="input-solic"
+												checked="checked"></div>
+										<div class="col-1">No</div>
+										<div class="col-1"><input type="radio" id="inputSolicServNo" name="input-solic">
+										</div>
+										<div class="col-2"></div>
+									</div>
+									<div class="form-group row text-left">
+										<label for="inputAspMejorar" class="col-sm-12 col-form-label">Aspectos que se
+											podrían mejorar:</label>
+										<input type="text" class="form-control" id="inputAspMejorar">
+									</div>
+									<div class="form-group row text-left">
+										<label class="col-sm-6 col-form-label">Cual de nuestros servicios ha
+											usado:</label>
+										<div class="col-sm-2"><input type="checkbox" id="servUsadoImp">Importacion</div>
+										<div class="col-sm-2"><input type="checkbox" id="servUsadoExp">Exportacion</div>
+										<div class="col-sm-1"><input type="checkbox" id="servUsadoOtros">Otros</div>
+
+									</div>
+									<div class="form-group row text-left">
+										<p>Recomendaría usted nuestros servicios a otros empresarios o entidades que los
+											necesiten y les
+											hayan consultado?</p>
+									</div>
+									<div class="form-group row text-left">
+										<div class="col-sm-4"><input type="radio" name="input-recomenda"
+												checked="checked" id="siRecomend"> Sin duda que lo har&iacute;a</div>
+										<div class="col-sm-4"><input type="radio" name="input-recomenda"
+												id="noRecomend"> No lo har&iacute;a</div>
+										<div class="col-sm-4"><input type="radio" name="input-recomenda"
+												id="talvezRecomend"> Lo pensar&iacute;a</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-danger">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="registroModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Registro</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<form id="formRegistro">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Nombre</label>
+							<input type="text" class="form-control" id="inputRegistroNombre"
+								aria-describedby="emailHelp" placeholder="Nombre de la empresa">
+							<small id="emailHelp" class="form-text text-muted">Nombre de la empresa a la que
+								representa</small>
+						</div>
+
+						<div class="form-group">
+							<label for="inputRegistroEmail">Email</label>
+							<input type="email" class="form-control" id="inputRegistroEmail"
+								aria-describedby="emailHelp" placeholder="Correo electr&oacute;nico">
+
+						</div>
+						<div class="form-group">
+							<label for="inputRegistroPass">Contrase&ntilde;a</label>
+							<input type="password" class="form-control" id="inputRegistroPass" placeholder="Password">
+						</div>
+
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-danger">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="{{asset('js/popper.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap-4.3.1.js')}}"></script>
+	<script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
 	<script type="text/javascript">
-		var myCenter=new google.maps.LatLng(23.129668993245872, -82.40740561867537);
-		 
+		var myCenter = new google.maps.LatLng(23.129668993245872, -82.40740561867537);
+
 		var marker = new google.maps.Marker({
-				position: myCenter
-				,});
-		 
-		window.onload = function() {
-				var mapOptions = {
-				  center: myCenter,
-				  zoom: 16,
-				  mapTypeId: google.maps.MapTypeId.ROADMAP,
-				  panControl: false,
-				  zoomControl: false,
-				  scaleControl: false,
-				  };
-				var map = new google.maps.Map(document.getElementById("mapaGoogle"), mapOptions);
+			position: myCenter
+			,
+		});
+
+		window.onload = function () {
+			var mapOptions = {
+				center: myCenter,
+				zoom: 16,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				panControl: false,
+				zoomControl: false,
+				scaleControl: false,
+			};
+			var map = new google.maps.Map(document.getElementById("mapaGoogle"), mapOptions);
 			marker.setMap(map);
-				};
-		</script>
+		};
+
+		//Exportaciones
+		$("#renglonesExportacionExp .card").click(function (e) {
+			//ir a #listProyectos
+			$(".card").removeClass("activeCard");
+			$(this).addClass("activeCard");
+		});
+
+		$("#listProyectos .btn").click(function (e) {
+
+			$("#proyectoSeleccionado").slideDown(400);
+		});
+
+		//Importaciones
+		$("#listProyectos .btn").click(function (e) {
+			$("#proyectoSeleccionado").slideDown(400);
+		});		 
+	</script>
 
 </body>
+
 </html>

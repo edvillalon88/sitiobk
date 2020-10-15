@@ -35,6 +35,10 @@ security:
     access_control:
         - { path: home, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: mercadotecnia, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: importaciones, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: exportaciones, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: logistica, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: contacto, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/logout$, roles: IS_AUTHENTICATED_ANONYMOUSLY }        
         - { path: ^/admin/*, roles: ['ROLE_ADMINISTRADOR'] }
