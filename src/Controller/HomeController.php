@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\EnumEstado;
 
+use App\Repository\ProveedorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -47,9 +48,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/mercadotecnia", name="mercadotecnia")
      */
-    public function mercado()
+    public function mercado(ProveedorRepository $proveedorRep)
     {
-        return $this->render('home/mercado.html.twig', []);
+        return $this->render('home/mercado.html.twig', [
+            'proveedores' => $proveedorRep->findAll(),
+        ]);
     }
 
     /**

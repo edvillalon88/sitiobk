@@ -118,14 +118,9 @@
       <div class="col-12 margin-bottom" id="mapa">
         <div id="padreMapa">
           <div id="infoContinente">
-            <h2>Coninente</h2>
-            <p>Contamos con proveedores en los siguientes paises:</p>
-            <ul>
-              <li>Nombre de Pais</li>
-              <li>Nombre de Pais</li>
-              <li>Nombre de Pais</li>
-              <li>Nombre de Pais</li>
-              <li>Nombre de Pais</li>
+            <h2 id="titleCont">Continente</h2>
+            <p id="textCont">Contamos con proveedores en los siguientes paises:</p>
+            <ul id="listCount" style="text-align: left;">
             </ul>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 751">
@@ -233,9 +228,49 @@
 {% endblock %}
 {% block javascripts %}
 <script>
+
+  var paises = [];
+
+  {% for prov in proveedores %}
+  paises.push({ "pais": "{{ prov.pais }}", "continente": "{{ prov.continente.nombre }}" });
+  {% endfor %}
+
   $(document).ready(function () {
+    $(".continente").click(function (e) {
+      e.preventDefault();
 
-  })
+      var name = $(this).attr("id");
 
+      if (name == "AmericaNorte")
+        name = "Norte América"
+      if (name == "AmericaSur")
+        name = "Sur América"
+      if (name == "Africa")
+        name = "África"
+      if (name == "Australia")
+        name = "Oceanía"
+
+      $("#titleCont").html(name);
+      $("#textCont").html("No tenemos presencia en este continente");
+
+      var li = "";
+      paises.forEach(function (element) {
+        if (element.continente == name) {
+          li += "<li>" + element.pais + "</li>";
+        } 
+      });
+
+      if(li != "")
+        $("#textCont").html("Contamos con proveedores en los siguientes paises:");
+
+      $("#listCount").html(li);
+
+      $("#infoContinente").fadeIn(500);
+    });
+    $("#infoContinente").click(function (e) {
+      $("#infoContinente").fadeOut(500);
+    })
+
+  });
 </script>
 {% endblock %}
