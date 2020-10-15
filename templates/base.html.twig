@@ -108,7 +108,6 @@
           </a>
         </li>
 
-        <!-- Nav Item - Dashboard -->
         <li class="nav-item ">
           <a class="nav-link" href="{{ path('usuario') }}">          
             <i class="fas fa-fw fa-users" aria-hidden="true"></i>
@@ -117,10 +116,12 @@
         </li>
 
         <li class="nav-item ">
-          <a class="nav-link" href="{{ path('encuesta_new') }}">                      
-            <span>Opcional Solicitar Encuesta</span>
+          <a class="nav-link" href="{{ path('encuesta_index') }}">          
+            <i class="fas fa-fw fa-note" aria-hidden="true"></i>
+            <span>Encuestas</span>
           </a>
         </li>
+        
         {% endif %} 
 
         <!-- Divider -->

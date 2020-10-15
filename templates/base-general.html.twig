@@ -50,8 +50,8 @@
 			<ul class="navbar-nav text-center" id="usuario">
 				{% if app.user %}
 				<li>{{ app.user.nombreApellidos }}
-					<a href="{{ path('app_logout') }}">Cerrar Sesión</a>
-					<a href="#">Llenar Encuesta</a>
+					<a href="{{ path('app_logout') }}">Cerrar Sesión</a><br /><br />
+					<a href="{{ path('encuesta_new') }}">Llenar Encuesta</a>
 				</li>
 				{% else %}
 				<li>
@@ -390,6 +390,8 @@
 			$("#proyectoSeleccionado").slideDown(400);
 		});		 
 	</script>
+
+{% block javascripts %}{% endblock %}
 
 </body>
 

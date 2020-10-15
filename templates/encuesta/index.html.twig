@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}  
+
+<h1 class="h3 mb-2 text-gray-800">Encuestas</h1>
+<p class="mb-4"></p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3 flex">
+    <h5 class="m-0 font-weight-bold text-primary" style="display:inline">Lista</h5>
+    
+  </div>
+  
+  <div class="card-body">
+    {% if error != '' %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ error }}        
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>                
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Empresa</th>
+                <th>Encuesta</th>                
+                <th></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Empresa</th>
+              <th>Encuesta</th>                
+              <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for respuesta in respuestas %}
+                <tr>                    
+                  <td>{{ respuesta.fechaHora |date("d-m-Y") }}</td>
+                  <td>{{ respuesta.cliente.usuario.nombreApellidos }}</td>
+                  <td>{{ respuesta.empresa }}</td>
+                  <td>{{ respuesta.encuesta.nombre }}</td>                  
+                  <td >
+                    <a class="btn btn-success" href="{{ path('encuesta_show', {'id': respuesta.id}) }}">Detalles</a> 
+                  </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No hay registros</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

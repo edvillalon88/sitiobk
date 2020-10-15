@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,9 @@ class Respuesta
      * @ORM\Column(name="fechaHora", type="datetime", nullable=true) 
      */
     private $fechaHora;
+
+    /** @ORM\Column(type="string", length=180) */
+    private $empresa;
 
     /**
      * @ORM\ManyToOne(targetEntity="Encuesta", inversedBy="respuestas", cascade={"persist"})
@@ -74,6 +78,22 @@ class Respuesta
     public function setFechaHora($fechaHora)
     {
         $this->fechaHora = $fechaHora;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+    /**
+     * @param mixed $empresa
+     */
+    public function setEmpresa($empresa)
+    {
+        $this->empresa = $empresa;
     }
 
     /**

@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Detalles de Encuesta</h1>
+    <div class="row" style="padding: 20px !important;">
+        <div class="col-md-12">
+            <table border="1" style="width: 100%; text-align: center">
+                <tr>
+                    <td rowspan="2" width="15%"><img src="{{asset('images/logox48.jpg')}}" /></td>
+                    <td rowspan="2" width="60%" valign="middle">
+                        <h4>{{respuesta.encuesta.nombre}}</h4>
+                    </td>
+                    <td width="25%" valign="middle">Código:<br /> {{respuesta.encuesta.codigo}}</td>
+                </tr>
+                <tr>
+                    <td valign="middle">Rev: {{respuesta.encuesta.rev}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-12 tb-encuesta-justify">
+     
+            Empresa: {{respuesta.empresa}}
+
+            Fecha: {{respuesta.fechaHora |date("d-m-Y")  }}
+
+        </div>
+
+        <div class="col-md-12">
+            <br />
+            <table border="1" style="width: 100%;">
+
+
+                {% for query in respuestas %}
+                {% if query.encuestaPregunta.pregunta.tipo.tipo == "Literal" %}
+                <tr>
+                    <td width="70%">{{query.encuestaPregunta.pregunta.enunciado}}</td>
+                    <td width="30%">{{query.valor}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                {% for query in respuestas %}
+                {% if query.encuestaPregunta.orden == 8 %}
+                <tr>
+                    <td colspan="2">
+                        {{query.encuestaPregunta.pregunta.enunciado}}
+                        <br />
+                        <p>{{query.valor}}</p>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                {% for query in respuestas %}
+                {% if query.encuestaPregunta.orden == 9 %}
+                <tr>
+                    <td colspan="2">
+                        {{query.encuestaPregunta.pregunta.enunciado}}
+                        <p>{{query.valor}}</p>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                {% for query in respuestas %}
+                {% if query.encuestaPregunta.orden == 10 %}
+                <tr>
+                    <td colspan="2">
+                        {{query.encuestaPregunta.pregunta.enunciado}}
+                        <p>{{query.valor}}</p>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                {% for query in respuestas %}
+                {% if query.encuestaPregunta.orden == 11 %}
+                <tr>
+                    <td colspan="2">
+                        {{query.encuestaPregunta.pregunta.enunciado}}
+                        <p>{{query.valor}}</p>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                {% for query in respuestas %}
+                {% if query.encuestaPregunta.orden == 12 %}
+                <tr>
+                    <td colspan="2">
+                        {{query.encuestaPregunta.pregunta.enunciado}}
+                        <p>{{query.valor}}</p>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+            </table>
+        </div>
+
+    </div>
+
+    <a href="{{ path('encuesta_index') }}">Volver a listado</a>
+
+{% endblock %}

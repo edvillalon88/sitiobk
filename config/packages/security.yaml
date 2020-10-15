@@ -40,5 +40,9 @@ security:
         - { path: logistica, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: contacto, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/logout$, roles: IS_AUTHENTICATED_ANONYMOUSLY }        
+        - { path: ^/admin/logout$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: encuesta_new, roles: ROLE_CLIENTE }
+        - { path: encuesta_index, roles: ['ROLE_ADMINISTRADOR'] }
+        - { path: encuesta_show, roles: ['ROLE_ADMINISTRADOR'] }
         - { path: ^/admin/*, roles: ['ROLE_ADMINISTRADOR'] }
+

@@ -20,7 +20,7 @@ class EncuestaFixtures extends Fixture
         $encuesta->setCodigo('R-07-1-4');
         $encuesta->setRev('2');
         $encuesta->setLogo('...');
-        $encuesta->setDescripCabecera('Estimado cliente, unos minutos de su tiempo nos ayuda a mejorar.'. 
+        $encuesta->setDescripCabecera('Estimado cliente, unos minutos de su tiempo nos ayuda a mejorar. '. 
         'La encuesta que le presentamos a continuación forma parte de un '.
         'estudio para conocer su grado de satisfacción con relación a la '.
         'Calidad de los Servicios que recibe de nuestra Empresa. '.
@@ -46,41 +46,41 @@ class EncuestaFixtures extends Fixture
             array('enunciado'=>'1. Atención de nuestro personal en recepción o por teléfono.',
                     'orden' => 1),
             array('enunciado'=>'2. Eficacia del proceso de contratación.',
-                    'orden' => 1),
+                    'orden' => 2),
             array('enunciado'=>'3. Eficacia de la entrega del material contratado.',
-                    'orden' => 1),
+                    'orden' => 3),
             array('enunciado'=>'4. Desempeño y profesionalidad del personal que lo atendió.',
-                    'orden' => 1),
+                    'orden' => 4),
             array('enunciado'=>'5. Eficiencia del proceso de Facturación.', 
-                    'orden' => 1),
+                    'orden' => 5),
             array('enunciado'=>'6. Calidad del servicio recibido.', 
-                    'orden' => 1),
+                    'orden' => 6),
             array('enunciado'=>'7. Satisfacción con el servicio prestado.', 
-                    'orden' => 1),
+                    'orden' => 7),
         ];
  
 
         //Crear arreglo para preguntas descripcion
         $preguntasDescripcion = [
-           array('enunciado'=>'Expectativas insatisfechas:', 'orden' => 2),
-           array('enunciado'=>'Aspectos que considere se pueden mejorar:', 'orden' => 4),
+           array('enunciado'=>'Expectativas insatisfechas:', 'orden' => 8),
+           array('enunciado'=>'Aspectos que considere se pueden mejorar:', 'orden' => 10),
         ];
 
         //Crear arreglo para preguntas bandera
         $preguntasBandera = [
-           array('enunciado'=>'Solicitaría nuevamente nuestros servicios:', 'orden' => 3),
+           array('enunciado'=>'Solicitaría nuevamente nuestros servicios:', 'orden' => 9),
         ];
 
         //Crear arreglo para preguntas de servicio
          $preguntasServicio = [
-            array('enunciado'=>'Cuál de nuestros servicios ha utilizado?', 'orden' => 5),
+            array('enunciado'=>'Cuál de nuestros servicios ha utilizado?', 'orden' => 11),
                                  
         ];
 
         //Crear arreglo para preguntas recomendación
          $preguntasRecomendacion = [
             array('enunciado'=>'Recomendaría usted nuestros servicios a otros '.
-            'empresarios o entidades que lo necesiten y les hayan consultado?', 'orden' => 6),
+            'empresarios o entidades que lo necesiten y les hayan consultado?', 'orden' => 12),
                                
         ];
 
