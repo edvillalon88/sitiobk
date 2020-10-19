@@ -10,18 +10,24 @@ use App\Repository\ClienteRepository;
 use App\Repository\NoticiaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
     private $username;
 
     /**
-     * @Route("/", name="home")
+     * @Route("/{_locale}",
+     *     name="home",
+     *     requirements={
+     *         "_locale": "es|en",
+     *     } )
      */
     public function index(RenglonRepository $renglonRep,
         ClienteRepository $clienteRep,
-        NoticiaRepository $noticiaRep)
+        NoticiaRepository $noticiaRep, $_locale = 'es')
     {
+      
         if(!empty($this->getUser())) {
 
             $isAdmin = in_array("ROLE_ADMINISTRADOR", $this->getUser()->getRoles());
