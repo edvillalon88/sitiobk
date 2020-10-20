@@ -48,7 +48,8 @@ class HomeController extends AbstractController
                 return $this->render('home/indexClient.html.twig', [
                     'renglones' => $renglonRep->findAll(),
                     'clientes' => $clienteRep->findAll(),
-                    'noticia' => $noticiaRep->find(1)
+                    'noticia' => $noticiaRep->find(1),
+                    'locale' => $_locale
                 ]);
             }
 
@@ -56,7 +57,8 @@ class HomeController extends AbstractController
             return $this->render('home/indexClient.html.twig', [
                 'renglones' => $renglonRep->findAll(),
                 'clientes' => $clienteRep->findAll(),
-                'noticia' => $noticiaRep->find(1)
+                'noticia' => $noticiaRep->find(1),
+                'locale' => $_locale
             ]);
         }
     }

@@ -24,45 +24,45 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto text-center" id="menu">
 				<li class="nav-item active">
-					<a class="nav-link text-uppercase" href="{{ path('home') }}">Home <span
+					<a class="nav-link text-uppercase" href="{{ path('home') }}">{% trans %}h_inicio{% endtrans %}<span
 							class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('mercadotecnia') }}">Mercadotecnia</a>
+					<a class="nav-link text-uppercase" href="{{ path('mercadotecnia') }}">{% trans %}h_mercadotecnia{% endtrans %}</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('importaciones') }}">Importaciones</a>
+					<a class="nav-link text-uppercase" href="{{ path('importaciones') }}">{% trans %}h_importaciones{% endtrans %}</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('exportaciones') }}">Exportaciones</a>
+					<a class="nav-link text-uppercase" href="{{ path('exportaciones') }}">{% trans %}h_exportaciones{% endtrans %}</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('logistica') }}">Log&iacute;stica</a>
+					<a class="nav-link text-uppercase" href="{{ path('logistica') }}">{% trans %}h_logísitica{% endtrans %}</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('contacto') }}">Contacto</a>
+					<a class="nav-link text-uppercase" href="{{ path('contacto') }}">{% trans %}h_contacto{% endtrans %}</a>
 				</li>
 				<li class="dropdown-divider"></li>
 			</ul>
 			<ul class="navbar-nav text-center" id="usuario">
 				{% if app.user %}
 				<li>{{ app.user.nombreApellidos }}
-					<a href="{{ path('app_logout') }}">Cerrar Sesión</a><br /><br />
-					<a href="{{ path('encuesta_new') }}">Llenar Encuesta</a>
+					<a href="{{ path('app_logout') }}">{% trans %}b_cerrar_sesion{% endtrans %}</a><br /><br />
+					<a href="{{ path('encuesta_new') }}">{% trans %}b_llenar_encuesta{% endtrans %}</a>
 				</li>
 				{% else %}
 				<li>
-					<a href="{{ path('app_login') }}">Iniciar Sesión</a>
+					<a href="{{ path('app_login') }}">{% trans %}b_iniciar_sesion{% endtrans %}</a>
 				</li>
 				{% endif %}
 				<li class="dropdown-divider"></li>
 			</ul>
 
 			<ul class="navbar-nav text-center" id="idiomas">
-				<li><a href="/es"><img src="{{asset('images/esp.png')}}" alt="espanish" /></a><a href="/en"><img
+				<li><a href="/es"><img src="{{asset('images/esp.png')}}" alt="spanish" /></a><a href="/en"><img
 							src="{{asset('images/eng.png')}}" alt="english" /></a></li>
 			</ul>
 		</div>
@@ -76,26 +76,16 @@
 			<div class="container myContainer">
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-left ">
-						<h2>Sitios de interes</h2>
+						<h2>{% trans %}h_sitios_interes{% endtrans %}</h2>
 						<ul>
 
 							<li><a target="_blank" href="https://www.sime.cu/es">GESIME</a></li>
-							<li><a target="_blank" href="https://www.mindus.gob.cu/es">Ministerio de Industria</a></li>
-
-							<li><a target="_blank" href="https://www.mincex.gob.cu">Ministerio de Comercio Exterior</a>
-							</li>
-
-							<li><a target="_blank" href="http://www.minrex.gob.cu/es">Ministerio de Relaciones
-									Exteriores</a></li>
-
-							<li><a target="_blank" href="http://www.zedmariel.com/es">Zona Especial de Desarrollo
-									Mariel</a></li>
-
-							<li><a target="_blank" href="http://www.procuba.cu/es">Centro de Promoción Comercio
-									Exterior</a></li>
-
-							<li><a target="_blank" href="http://misiones.minrex.gob.cu/es/camara-de-comercio">Cámara de
-									Comercio</a></li>
+							<li><a target="_blank" href="https://www.mindus.gob.cu/es">{% trans %}link_industria{% endtrans %}</a></li>
+							<li><a target="_blank" href="https://www.mincex.gob.cu">{% trans %}link_comercio{% endtrans %}</a></li>
+							<li><a target="_blank" href="http://www.minrex.gob.cu/es">{% trans %}link_exterior{% endtrans %}</a></li>
+							<li><a target="_blank" href="http://www.zedmariel.com/es">{% trans %}link_mariel{% endtrans %}</a></li>
+							<li><a target="_blank" href="http://www.procuba.cu/es">{% trans %}link_promocion{% endtrans %}</a></li>
+							<li><a target="_blank" href="http://misiones.minrex.gob.cu/es/camara-de-comercio">{% trans %}link_camara{% endtrans %}</a></li>
 
 						</ul>
 
@@ -104,26 +94,26 @@
 
 					</div>
 					<div class="col-md-12 col-sm-12 col-lg-4 text-center" id="redes-footer">
-						<h2>Siguenos en las redes</h2>
+						<h2>{% trans %}h_siguenos{% endtrans %}</h2>
 						<a href="#"><img src="{{asset('images/btn-facebook.png')}}" /></a>
 						<a href="#"><img src="{{asset('images/btn-twitter.png')}}" /></a>
-						<p>Siguenos en las redes sociales y mantente informado de eventos y noticias importantes</p>
+						<p>{% trans %}p_siguenos_redes{% endtrans %}</p>
 
 					</div>
 					<div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-right">
-						<h2>Cont&aacute;ctenos</h2>
+						<h2>{% trans %}h_contactanos{% endtrans %}</h2>
 						<form id="formContactFooter">
 							<div class="form-group">
-								<input type="text" class="form-control" id="inputNombreFooter" placeholder="Nombre">
+								<input type="text" class="form-control" id="inputNombreFooter" placeholder="{% trans %}tx_nombre{% endtrans %}">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" id="inputEmailFooter" placeholder="Email">
+								<input type="email" class="form-control" id="inputEmailFooter" placeholder="{% trans %}tx_email{% endtrans %}">
 							</div>
 							<div class="form-group">
 								<textarea></textarea>
 							</div>
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">{% trans %}b_enviar{% endtrans %}</button>
 							</div>
 						</form>
 					</div>

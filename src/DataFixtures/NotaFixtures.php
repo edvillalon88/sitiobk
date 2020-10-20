@@ -15,14 +15,14 @@ class NotaFixtures extends Fixture
      
         $nota->setFechaHora(new \DateTime());
      
-        $nota->setTitulo('');
-        $nota->setTituloEn('');
+        $nota->setTitulo('Primera Notica de la Jornada');
+        $nota->setTituloEn('First News of the Day');
 
-        $nota->setSubtitulo('');
-        $nota->setSubtituloEn('');
+        $nota->setSubtitulo('Bienvenido a nuestro sitio');
+        $nota->setSubtituloEn('Welcome to our site');
 
-        $nota->setContenido('');
-        $nota->setContenidoEn('');
+        $nota->setContenido('En este espacio aparece la descripción de la noticia relevante de nuestra empresa.');
+        $nota->setContenidoEn('In this space appears the description of the relevant news of our company.');
 
         $nota->setImagen('');
 
