@@ -15,33 +15,31 @@
         <div class="carousel-caption d-md-block text-left">
           <h2 class="display-4 text-uppercase">{% trans %}h_mercadotecnia{% endtrans %}</h2>
           <p class="lead">{% trans %}slider_mercado{% endtrans %}</p>
-          <a class="btn btn-primary btn-sm" href="mercado.html" role="button">Leer m&aacute;s</a>
+          <a class="btn btn-primary btn-sm" href="{{ path('mercadotecnia') }}" role="button">{% trans %}b_leer_mas{% endtrans %}</a>
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('images/slider03.jpg')">
         <div class="carousel-caption d-md-block text-left">
-          <h2 class="display-4 text-uppercase">Importaci&oacute;n</h2>
-          <p class="lead">La empresa se encuentra inmersa en el proceso de inversionista...</p>
-          <a class="btn btn-primary btn-sm" href="importacion.html" role="button">Leer m&aacute;s</a>
+          <h2 class="display-4 text-uppercase">{% trans %}h_importaciones{% endtrans %}</h2>
+          <p class="lead">{% trans %}slider_import{% endtrans %}</p>
+          <a class="btn btn-primary btn-sm" href="{{ path('importaciones') }}" role="button">{% trans %}b_leer_mas{% endtrans %}</a>
         </div>
       </div>
       <!-- Slide three - Set the background image for this slide in the line below -->
       <div id="slideImport" class="carousel-item" style="background-image: url('images/slider02.jpg')">
         <div class="carousel-caption d-md-block text-left">
-          <h2 class="display-4 text-uppercase">Exportaci&oacute;n</h2>
-          <p class="lead">Colabora en la identificación de capacidades de fabricación y/o integración de los renglones
-            exportables...</p>
-          <a class="btn btn-primary btn-sm" href="exportacion.html" role="button">Leer m&aacute;s</a>
+          <h2 class="display-4 text-uppercase">{% trans %}h_exportaciones{% endtrans %}</h2>
+          <p class="lead">{% trans %}slider_export{% endtrans %}</p>
+          <a class="btn btn-primary btn-sm" href="{{ path('exportaciones') }}" role="button">{% trans %}b_leer_mas{% endtrans %}</a>
         </div>
       </div>
       <!-- Slide four - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('images/slider04.jpg')">
         <div class="carousel-caption  d-md-block text-left">
-          <h2 class="display-4 text-uppercase">Log&iacute;stica</h2>
-          <p class="lead">Realizamos todos los trámites aduanales de las operaciones contratadas por las entidades...
-          </p>
-          <a class="btn btn-primary btn-sm" href="logistica.html" role="button">Leer m&aacute;s</a>
+          <h2 class="display-4 text-uppercase">{% trans %}h_logistica{% endtrans %}</h2>
+          <p class="lead">{% trans %}slider_logistica{% endtrans %}</p>
+          <a class="btn btn-primary btn-sm" href="logistica.html" role="button">{% trans %}b_leer_mas{% endtrans %}</a>
         </div>
       </div>
     </div>
@@ -60,15 +58,11 @@
     <div class="row">
       <div class="col-md-12 col-lg-4 col-sm-12 col-xs-12 text-center text-lg-left">
         <h1>{% trans %}h_quienes_somos{% endtrans %}</h1>
-        <p>BK Import/Export es una empresa líder en el mercado nacional en la prestación integral de los servicios de
-          importación y exportación con los mejores precios del mercado.</p>
-        <p>Ponemos a su disposición un alto nivel profesional de nuestros especialistas y el uso efectivo de las TICs,
-          garantizando el suministro de los bienes y servicios para las inversiones y para la producción sostenida del
-          sector industrial, así como el posicionamiento en los mercados de los productos y servicios que satisfagan las
-          necesidades de nuestros clientes, de forma eficiente, con calidad y rapidez.</p>
+        <p>{% trans %}p_index_text1{% endtrans %}</p>
+        <p>{% trans %}p_index_text2{% endtrans %}</p>
       </div>
       <div class=" col-md-12 col-lg-8 col-sm-12 col-xs-12 center-sm">
-        <h1>Renglones de exportaci&oacute;n</h1>
+        <h1>{% trans %}h_renglones{% endtrans %}</h1>
         <div id="carrouselRenglones" class="carousel slide" data-ride="carousel" data-interval="false">
 
           <div class="carousel-inner" role="listbox">
@@ -92,7 +86,7 @@
                   <div class="card "> 
                       <div class="card-body">
                       <h5 class="card-title"></h5>
-                      <p class="card-text">No hay registros</p>
+                      <p class="card-text">{% trans %}msg_no_registros{% endtrans %}</p>
                     </div>
                   </div>
                 </div>
@@ -121,7 +115,7 @@
         <h4>{%if locale == 'es' %} {{noticia.subtitulo}} {%else%} {{noticia.subtituloEn}}{%endif%}</h4>
         <p>{%if locale == 'es' %} {{noticia.contenido}} {%else%} {{noticia.contenidoEn}}{%endif%}</p>
 
-        <span>Fecha: {{noticia.fechaHora | date("d M Y")}}</span>
+        <span>{% trans %}msg_fecha{% endtrans %}: {{noticia.fechaHora | date("d M Y")}}</span>
       </div>
     </div>
   </div>

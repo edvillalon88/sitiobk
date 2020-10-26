@@ -2,14 +2,21 @@
 'h_mercadotecnia': 'Mercadotecnia'
 'h_importaciones': 'Importaciones'
 'h_exportaciones': 'Exportaciones'
-'h_logísitica': 'Logística'
+'h_logistica': 'Logística'
 'h_contacto': 'Contacto'
 'h_contactanos': 'Contáctenos'
 'h_sitios_interes': 'Sitios de interés'
 'h_siguenos': 'Síguenos en las redes'
 'h_quienes_somos': 'Quiénes somos?'
+'h_renglones': 'Renglones de exportación'
 
 'slider_mercado': 'Nos dedicamos a identificar e impulsar nuevos mercados, logrando una empresa más competitiva...'
+'slider_import': 'La empresa se encuentra inmersa en el proceso de inversionista...'
+'slider_export': 'Colabora en la identificación de capacidades de fabricación y/o integración de los renglones exportables...'
+'slider_logistica': 'Realizamos todos los trámites aduanales de las operaciones contratadas por las entidades...'
+
+'msg_no_registros': 'No hay registros'
+'msg_fecha': 'Fecha'
 
 'b_iniciar_sesion': 'Iniciar sesión'
 'b_cerrar_sesion': 'Cerrar sesión'
@@ -17,6 +24,7 @@
 'b_entrar': 'Entrar'
 'b_volver': 'Volver al sitio'
 'b_enviar': 'Enviar'
+'b_leer_mas': 'Leer más'
 
 'link_industria': 'Ministerio de Industria'
 'link_comercio': 'Ministerio de Comercio Exterior'
@@ -28,4 +36,6 @@
 'tx_nombre': 'Nombre'
 'tx_email': 'Correo electrónico'
 
+'p_index_text1': 'BK Import/Export es una empresa líder en el mercado nacional en la prestación integral de los servicios de importación y exportación con los mejores precios del mercado.'
+'p_index_text2': 'Ponemos a su disposición un alto nivel profesional de nuestros especialistas y el uso efectivo de las TICs, garantizando el suministro de los bienes y servicios para las inversiones y para la producción sostenida del sector industrial, así como el posicionamiento en los mercados de los productos y servicios que satisfagan las necesidades de nuestros clientes, de forma eficiente, con calidad y rapidez.'
 'p_siguenos_redes' : 'Siguenos en las redes sociales y mantente informado de eventos y noticias importantes'
