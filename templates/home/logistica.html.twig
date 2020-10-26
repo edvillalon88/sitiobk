@@ -3,59 +3,51 @@
 {% block body %}
 
 <section id="bannerLogistica" class="banner-sec">
-  <img src="images/banner-logistica.jpg" class="img-fluid" alt="Placeholder image">
+  <img src="{{asset('images/banner-logistica.jpg')}}" class="img-fluid" alt="Placeholder image">
 </section>
 <section class="margin-bottom">
   <div class="container myContainer">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="h1-secciones">Log&iacute;stica</h1>
-        <p class="text-left">Realizamos todos los trámites aduanales de las operaciones contratadas por las entidades,
-          tanto en las importaciones, las exportaciones, así como las donaciones, garantizando una respuesta rápida en
-          la habilitación de la documentación de las cargas marítimas y aéreas.</p>
-        <p class="text-left">
-          Llevamos a cabo las clasificaciones por partidas arancelarias y el análisis actualizados de los fletes por
-          navieras y por zonas geográficas.
-          Gestionamos las pólizas de seguro, así como los trámites de contratación con los transportistas para el
-          traslado de contenedores, equipos especializados u otros, así como la contratación con agencias de inspección
-          internacional.</p>
+        <h1 class="h1-secciones">{% trans %}h_logistica{% endtrans %}</h1>
+        <p class="text-left">{% trans %}p_logistic_text1{% endtrans %}</p>
+        <p class="text-left">{% trans %}p_logistic_text2{% endtrans %}</p>
       </div>
     </div>
   </div>
   <div class="container myContainer" id="interactLogist">
     <div class="row margin-top">
-      <div class="col-6 text-right"><a href="#" id="avion" class="active"><img src="images/avion-logistica.png"
+      <div class="col-6 text-right"><a href="#interactLogist" onclick="openInfo(1)" id="avion" class="active"><img src="{{asset('images/avion-logistica.png')}}"
             class="rounded-circle img-fluid" alt="Placeholder image"></a></div>
-      <div class="col-6 text-left"><a href="#" id="barco"><img src="images/barco-logistica.png"
+      <div class="col-6 text-left"><a href="#interactLogist" onclick="openInfo(2)" id="barco"><img src="{{asset('images/barco-logistica.png')}}"
             class="rounded-circle img-fluid" alt="Placeholder image"></a></div>
     </div>
     <div id="infoAvion">
       <div class="row margin-top">
-        <div class="col-6 text-right font-weight-bold">Lugar de Entrega</div>
-        <div class="col-6"><span>Terminal de AereoVaradero / Almacenes DHL</span></div>
+        <div class="col-6 text-right font-weight-bold">{% trans %}tx_entrega{% endtrans %}</div>
+        <div class="col-6"><span>{% trans %}tx_entrega2{% endtrans %}</span></div>
       </div>
       <div class="row">
-        <div class="col-6 text-right font-weight-bold">Demora de Tr&aacute;mites</div>
-        <div class="col-6"><span>3 D&iacute;as</span></div>
+        <div class="col-6 text-right font-weight-bold">{% trans %}tx_demora{% endtrans %}</div>
+        <div class="col-6"><span>3 {% trans %}tx_demora2{% endtrans %}</span></div>
       </div>
       <div class="row">
-        <div class="col-6 text-right font-weight-bold">Plazo de Entrega</div>
-        <div class="col-6"><span>3 d&iacute;as libres de impuesto</span></div>
+        <div class="col-6 text-right font-weight-bold">{% trans %}tx_plazo{% endtrans %}</div>
+        <div class="col-6"><span>3 {% trans %}tx_plazo2{% endtrans %}</span></div>
       </div>
     </div>
     <div id="infoBarco" class="hiden">
       <div class="row margin-top">
-        <div class="col-6 text-right font-weight-bold">Lugar de Entrega</div>
-        <div class="col-6"><span>Cargas Agrupadas: Puerto de Mariel</span><span>Contenedores: Almacenes de destino final
-            Zona Franca</span></div>
+        <div class="col-6 text-right font-weight-bold">{% trans %}tx_entrega{% endtrans %}</div>
+        <div class="col-6"><span>{% trans %}tx_entrega3{% endtrans %}</span></div>
       </div>
       <div class="row">
-        <div class="col-6 text-right font-weight-bold">Demora de Tr&aacute;mites</div>
-        <div class="col-6"><span>3 D&iacute;as</span></div>
+        <div class="col-6 text-right font-weight-bold">{% trans %}tx_demora{% endtrans %}</div>
+        <div class="col-6"><span>3 {% trans %}tx_demora2{% endtrans %}</span></div>
       </div>
       <div class="row">
-        <div class="col-6 text-right font-weight-bold">Plazo de Entrega</div>
-        <div class="col-6"><span>12 d&iacute;as libres de impuesto</span></div>
+        <div class="col-6 text-right font-weight-bold">{% trans %}tx_plazo{% endtrans %}</div>
+        <div class="col-6"><span>12 {% trans %}tx_plazo2{% endtrans %}</span></div>
       </div>
     </div>
   </div>
@@ -68,6 +60,16 @@
   $(document).ready(function () {
 
   })
+
+  var openInfo = function(number) {
+      if(number == 1) {
+        $("#infoAvion").show();
+        $("#infoBarco").hide();
+      } else {
+        $("#infoAvion").hide();
+        $("#infoBarco").show();
+      }
+  }
 
 </script>
 {% endblock %}

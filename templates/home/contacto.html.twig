@@ -3,13 +3,13 @@
 {% block body %}
 
 <section id="bannerLogistica" class="banner-sec">
-  <img src="images/banner-cont.jpg" class="img-fluid" alt="Placeholder image">
+  <img src="{{asset('images/banner-cont.jpg')}}" class="img-fluid" alt="Placeholder image">
 </section>
 <section style="overflow: hidden;">
   <div class="fluid-container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1>Donde estamos</h1>
+        <h1>{% trans %}h_idx_estamosen{% endtrans %}</h1>
         <div style="width: 100%; min-height: 500px; background-color: #ccc;" id="mapaGoogle"></div>
 
       </div>
@@ -21,27 +21,27 @@
       <div class="col-md-6 col-sm-12">
         <form>
           <div class="form-group">
-            <label for="inputNombreCont">Nombre</label><span class="red-text">*</span>
-            <input type="text" class="form-control" id="inputNombreCont" placeholder="Nombre y Apellido">
+            <label for="inputNombreCont">{% trans %}tx_nombre{% endtrans %} </label><span class="red-text">*</span>
+            <input required type="text" class="form-control" id="inputNombreCont" placeholder="">
 
           </div>
           <div class="form-group">
-            <label for="inputEmpresaCont">Empresa</label><span class="red-text">*</span>
-            <input type="text" class="form-control" id="inputEmpresaCont" placeholder="Empresa para la que labora">
+            <label for="inputEmpresaCont">{% trans %}tx_empresa{% endtrans %}</label><span class="red-text">*</span>
+            <input required type="text" class="form-control" id="inputEmpresaCont" placeholder="">
 
           </div>
           <div class="form-group">
-            <label for="inputEmailCont">Email </label><span class="red-text">*</span>
-            <input type="email" class="form-control" id="inputEmailCont"
-              placeholder="Introduzca su direcci&oacute; email">
+            <label for="inputEmailCont">{% trans %}tx_email{% endtrans %} </label><span class="red-text">*</span>
+            <input required type="email" class="form-control" id="inputEmailCont"
+              placeholder="">
 
           </div>
           <div class="form-group">
-            <label for="inputTelCont">Numero de Telefono</label>
+            <label for="inputTelCont">{% trans %}tx_telefono{% endtrans %} </label>
             <input type="text" class="form-control" id="inputTelCont">
           </div>
           <div class="form-group">
-            <label for="inputTelCont">Numero de Telefono</label>
+            <label for="inputTelCont">{% trans %}tx_pais{% endtrans %} </label>
             <select class="form-control" id="inputTelCont">
               <option value="Afganistán">Afganistán</option>
               <option value="Albania">Albania</option>
@@ -254,32 +254,30 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="inputTelCont">Mensaje</label><span class="red-text">*</span>
-            <textarea class="form-control" placeholder="Mensaje"></textarea>
+            <label for="inputTelCont">{% trans %}tx_mensaje{% endtrans %}</label><span class="red-text">*</span>
+            <textarea required class="form-control" placeholder=""></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
       </div>
       <div class="col-md-6 col-sm-12">
-        <h3>Datos de Contacto</h3>
-        <p>
-          Direccion comercial: Dirección comercial: Esta es la dirección comercial, calle 11
-          #1159 entre 18 y 20, Plaza de la Revolución, La Habana, Cuba</p>
+        <h3>{% trans %}h_idx_datos_contact{% endtrans %}</h3>
+        <p>{% trans %}p_direccion{% endtrans %}</p>
 
-        <p>Mercadotecnia: +53 7835 5220<br>
+        <p>{% trans %}h_mercadotecnia{% endtrans %}: +53 7835 5220<br>
           Email: <a href="mailto:clarita@bkimp.co.cu">clarita@bkimp.co.cu</a>
         </p>
         <p>
-          Importaciones: +53 7832 5250<br>
+          {% trans %}h_importaciones{% endtrans %}: +53 7832 5250<br>
           Email: <a href="mailto:taimi@bkimp.co.cu">taimi@bkimp.co.cu</a>
         </p>
         <p>
-          Exportaciones: +53 7835 5223<br>
+          {% trans %}h_exportaciones{% endtrans %}: +53 7835 5223<br>
           Email: <a href="#">lis@bkimp.co.cu</a>
         </p>
         <p>
-          Logistica: +53 7835 5276<br>
+          {% trans %}h_logistica{% endtrans %}: +53 7835 5276<br>
           Email: <a href="mailto:natycary@bkimp.co.cu">natycary@bkimp.co.cu</a>
 
         </p>

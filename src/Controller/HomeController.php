@@ -64,9 +64,13 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/mercadotecnia", name="mercadotecnia")
-     */
-    public function mercado(ProveedorRepository $proveedorRep)
+     * @Route("/mercadotecnia/{_locale}",
+     *     name="mercadotecnia",
+     *     requirements={
+     *         "_locale": "es|en",
+     *     } )
+     */    
+    public function mercado(ProveedorRepository $proveedorRep, $_locale = 'es')
     {
         return $this->render('home/mercado.html.twig', [
             'proveedores' => $proveedorRep->findAll(),
@@ -74,33 +78,49 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/importaciones", name="importaciones")
+     * @Route("/importaciones/{_locale}",
+     *     name="importaciones",
+     *     requirements={
+     *         "_locale": "es|en",
+     *     } )
      */
-    public function importacion()
+    public function importacion($_locale = 'es')
     {
         return $this->render('home/importacion.html.twig', []);
     }
 
     /**
-     * @Route("/exportaciones", name="exportaciones")
+     * @Route("/exportaciones/{_locale}",
+     *     name="exportaciones",
+     *     requirements={
+     *         "_locale": "es|en",
+     *     } )
      */
-    public function exportacion()
+    public function exportacion($_locale = 'es')
     {
         return $this->render('home/exportacion.html.twig', []);
     }
 
     /**
-     * @Route("/logistica", name="logistica")
+     * @Route("/logistica/{_locale}",
+     *     name="logistica",
+     *     requirements={
+     *         "_locale": "es|en",
+     *     } )
      */
-    public function logistica()
+    public function logistica($_locale = 'es')
     {
         return $this->render('home/logistica.html.twig', []);
     }
 
     /**
-     * @Route("/contacto", name="contacto")
+     * @Route("/contacto/{_locale}",
+     *     name="contacto",
+     *     requirements={
+     *         "_locale": "es|en",
+     *     } )
      */
-    public function contacto()
+    public function contacto($_locale = 'es')
     {
         return $this->render('home/contacto.html.twig', []);
     }
