@@ -11,7 +11,9 @@
 'h_idx_renglones': 'Export lines'
 'h_idx_clientes': 'Our Clients'
 'h_idx_estamosen': 'Where are us?'
-'h_idx_datos_contact': 'Contact Info'
+'h_idx_datos_contact': 'Contact info'
+'h_idx_solicita_import': 'Request an import'
+'h_idx_firma_contrato': 'Firma de contrato'
 
 'slider_mercado': 'We are dedicated to identifying and promoting new markets, achieving a more competitive company ...'
 'slider_import': 'The company is immersed in the investor process ...'
@@ -58,3 +60,5 @@
 'p_direccion' : 'Business address: This is the business address, Calle 11 # 1159 between 18 and 20, Plaza de la Revolución, Havana, Cuba'
 'p_logistic_text1': 'We carry out all the customs procedures of the operations contracted by the entities, both in imports, exports, as well as donations, guaranteeing a quick response in the authorization of the documentation of maritime and air cargoes.'
 'p_logistic_text2': 'We carry out the classifications by tariff items and the updated analysis of the freights by shipping companies and by geographical areas. We manage insurance policies, as well as contracting procedures with carriers for the transfer of containers, specialized equipment or others, as well as contracting with international inspection agencies.'
+'p_mercado_text1': 'We are dedicated to identifying and promoting new markets, achieving a more competitive company, developing the functions related to importation and exportation.'
+'p_mercado_text2': 'If you need to import, we explain each of the steps below.'

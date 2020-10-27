@@ -12,6 +12,8 @@
 'h_idx_clientes': 'Nuestros Clientes'
 'h_idx_estamosen': 'Dónde estamos'
 'h_idx_datos_contact': 'Datos de Contacto'
+'h_idx_solicita_import': 'Solicitar una importación'
+'h_idx_firma_contrato': 'Firma de contrato'
 
 'slider_mercado': 'Nos dedicamos a identificar e impulsar nuevos mercados, logrando una empresa más competitiva...'
 'slider_import': 'La empresa se encuentra inmersa en el proceso de inversionista...'
@@ -58,3 +60,5 @@
 'p_direccion' : 'Dirección comercial: Esta es la dirección comercial, calle 11 #1159 entre 18 y 20, Plaza de la Revolución, La Habana, Cuba'
 'p_logistic_text1': 'Realizamos todos los trámites aduanales de las operaciones contratadas por las entidades,tanto en las importaciones, las exportaciones, así como las donaciones, garantizando una respuesta rápida en la habilitación de la documentación de las cargas marítimas y aéreas.'
 'p_logistic_text2': 'Llevamos a cabo las clasificaciones por partidas arancelarias y el análisis actualizados de los fletes por navieras y por zonas geográficas. Gestionamos las pólizas de seguro, así como los trámites de contratación con los transportistas para el traslado de contenedores, equipos especializados u otros, así como la contratación con agencias de inspección internacional.'
+'p_mercado_text1': 'Nos dedicamos a identificar e impulsar nuevos mercados, logrando una empresa más competitiva, desarrollando las funciones vinculadas a la imprtación y la exportación.'
+'p_mercado_text2': 'Si usted necesita realizar una importación, le explicamos a continuación cada de uno de los pasos.'
