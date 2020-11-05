@@ -3,7 +3,7 @@
 {% block body %}
 
 <section id="bannerImportacion" class="banner-sec">
-  <img src="images/banner-export.jpg" class="img-fluid" alt="Placeholder image">
+  <img src="{{asset('images/banner-export.jpg')}}" class="img-fluid" alt="Placeholder image">
 </section>
 
 <section id="contExport">
@@ -308,24 +308,14 @@
     </div>
     <div class="row galeria margin-top margin-bottom text-center">
 
-      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery"
-          data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery"
-          data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery"
-          data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery"
-          data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery"
-          data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery"
-          data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a>
-      </div>
+      {% for img in galerias %}
+
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+        <a href="{{ asset('uploads/imagenes/' ~ img.imagen) }}" data-fancybox="gallery" data-caption="Caption #1">
+        <img src="{{ asset('uploads/imagenes/' ~ img.imagen) }}" width="400" class="img-fluid" alt="Placeholder image"></a></div>
+      {% else %}
+      <li>{% trans %}msg_no_registros{% endtrans %}</li>
+      {% endfor %} 
 
 
     </div>
@@ -336,7 +326,8 @@
 {% block javascripts %}
 <script>
   $(document).ready(function () {
-
+    $(".who-active").removeClass("active");
+    $("#expLink").addClass("active");
   })
 
 </script>

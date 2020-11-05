@@ -8,6 +8,8 @@ use App\Repository\ProveedorRepository;
 use App\Repository\RenglonRepository;
 use App\Repository\ClienteRepository;
 use App\Repository\NoticiaRepository;
+use App\Repository\ProyectoRepository;
+use App\Repository\GaleriaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,6 +76,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/mercado.html.twig', [
             'proveedores' => $proveedorRep->findAll(),
+            'locale' => $_locale
         ]);
     }
 
@@ -84,9 +87,16 @@ class HomeController extends AbstractController
      *         "_locale": "es|en",
      *     } )
      */
-    public function importacion($_locale = 'es')
+    public function importacion(ClienteRepository $clienteRep, 
+        ProyectoRepository $proyectoRep, GaleriaRepository $galeriaRep,
+         $_locale = 'es')
     {
-        return $this->render('home/importacion.html.twig', []);
+        return $this->render('home/importacion.html.twig', [
+            'clientes' => $clienteRep->findAll(),
+            'proyectos' => $proyectoRep->findBy(array("tipo" => 1)),
+            'galerias' => $galeriaRep->findBy(array("tipo" => 1)),
+            'locale' => $_locale
+        ]);
     }
 
     /**
@@ -96,9 +106,16 @@ class HomeController extends AbstractController
      *         "_locale": "es|en",
      *     } )
      */
-    public function exportacion($_locale = 'es')
+    public function exportacion(RenglonRepository $renglonRep, 
+    ProyectoRepository $proyectoRep, GaleriaRepository $galeriaRep,
+     $_locale = 'es')
     {
-        return $this->render('home/exportacion.html.twig', []);
+        return $this->render('home/exportacion.html.twig', [
+            'renglones' => $renglonRep->findAll(),
+            'proyectos' => $proyectoRep->findBy(array("tipo" => 2)),
+            'galerias' => $galeriaRep->findBy(array("tipo" => 2)),
+            'locale' => $_locale
+        ]);
     }
 
     /**

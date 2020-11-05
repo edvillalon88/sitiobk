@@ -23,26 +23,26 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto text-center" id="menu">
-				<li class="nav-item active">
+				<li id="homeLink" class="who-active nav-item active">
 					<a class="nav-link text-uppercase" href="{{ path('home') }}">{% trans %}h_inicio{% endtrans %}<span
 							class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item">
+				<li id="tradeLink" class="who-active nav-item">
 					<a class="nav-link text-uppercase" href="{{ path('mercadotecnia') }}">{% trans %}h_mercadotecnia{% endtrans %}</a>
 				</li>
 
-				<li class="nav-item">
+				<li id="impLink" class="who-active nav-item">
 					<a class="nav-link text-uppercase" href="{{ path('importaciones') }}">{% trans %}h_importaciones{% endtrans %}</a>
 				</li>
 
-				<li class="nav-item">
+				<li id="expLink" class="who-active nav-item">
 					<a class="nav-link text-uppercase" href="{{ path('exportaciones') }}">{% trans %}h_exportaciones{% endtrans %}</a>
 				</li>
 
-				<li class="nav-item">
+				<li id="logLink" class="who-active nav-item">
 					<a class="nav-link text-uppercase" href="{{ path('logistica') }}">{% trans %}h_logistica{% endtrans %}</a>
 				</li>
-				<li class="nav-item">
+				<li id="contactLink" class="who-active nav-item">
 					<a class="nav-link text-uppercase" href="{{ path('contacto') }}">{% trans %}h_contacto{% endtrans %}</a>
 				</li>
 				<li class="dropdown-divider"></li>
@@ -50,8 +50,7 @@
 			<ul class="navbar-nav text-center" id="usuario">
 				{% if app.user %}
 				<li>{{ app.user.nombreApellidos }}
-					<a href="{{ path('app_logout') }}">{% trans %}b_cerrar_sesion{% endtrans %}</a><br /><br />
-					<a href="{{ path('encuesta_new') }}">{% trans %}b_llenar_encuesta{% endtrans %}</a>
+					<a href="{{ path('app_logout') }}">{% trans %}b_cerrar_sesion{% endtrans %}</a>
 				</li>
 				{% else %}
 				<li>
@@ -78,15 +77,14 @@
 					<div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-left ">
 						<h2>{% trans %}h_sitios_interes{% endtrans %}</h2>
 						<ul>
-
-							<li><a target="_blank" href="https://www.sime.cu/es">GESIME</a></li>
 							<li><a target="_blank" href="https://www.mindus.gob.cu/es">{% trans %}link_industria{% endtrans %}</a></li>
 							<li><a target="_blank" href="https://www.mincex.gob.cu">{% trans %}link_comercio{% endtrans %}</a></li>
 							<li><a target="_blank" href="http://www.minrex.gob.cu/es">{% trans %}link_exterior{% endtrans %}</a></li>
 							<li><a target="_blank" href="http://www.zedmariel.com/es">{% trans %}link_mariel{% endtrans %}</a></li>
 							<li><a target="_blank" href="http://www.procuba.cu/es">{% trans %}link_promocion{% endtrans %}</a></li>
 							<li><a target="_blank" href="http://misiones.minrex.gob.cu/es/camara-de-comercio">{% trans %}link_camara{% endtrans %}</a></li>
-
+							<li><a target="_blank" href="https://www.sime.cu/es">GESIME</a></li>
+							<li><a target="_blank" href="https://www.aduana.gob.cu/">{% trans %}link_aduana{% endtrans %}</a></li>
 						</ul>
 
 
@@ -127,212 +125,6 @@
 			</div>
 		</div>
 	</footer>
-	<div class="modal fade " id="modalEncuesta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-70" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="modalEncuestaLabel">Encuesta (Nombre de Cliente)</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid" id="encuestaPreguntas">
-						<h2>Evalue</h2>
-						<div class="row">
-							<div class="col-6">
-								<p>Atencion de nuestro personal en recepción o por teléfono.</p>
-							</div>
-							<div class="col-6">
-								<ul data-cat="atencion-x-telefono" style="margin-top: 15px;">
-									<li class="active" data-value="2"><a href="#"><img
-												src="images/encuesta-1.png" /></a></li>
-									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<p>Eficacia de la entrega del material contratado.</p>
-							</div>
-							<div class="col-6" style="vertical-align: middle;">
-								<ul data-cat="eficacia-entrega" style="margin-top: 20px;">
-									<li class="active" data-value="2"><a href="#"><img
-												src="images/encuesta-1.png" /></a></li>
-									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<p>Desempeño y profesionalidad del personal que lo atendió.</p>
-							</div>
-							<div class="col-6">
-								<ul data-cat="profesionalidad-personal" style="margin-top: 20px;">
-									<li class="active" data-value="2"><a href="#"><img
-												src="images/encuesta-1.png" /></a></li>
-									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<p>Eficacia del proceso de facturación.</p>
-							</div>
-							<div class="col-6">
-								<ul data-cat="eficacia-factura" style="margin-top: 5px;">
-									<li class="active" data-value="2"><a href="#"><img
-												src="images/encuesta-1.png" /></a></li>
-									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<p>Calidad del servicio recibido.</p>
-							</div>
-							<div class="col-6" style="vertical-align: middle;">
-								<ul data-cat="calidad-servicio" style="margin-top: 7px;">
-									<li class="active" data-value="2"><a href="#"><img
-												src="images/encuesta-1.png" /></a></li>
-									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<p>Satisfacci&oacute;n con el servicio prestado</p>
-							</div>
-							<div class="col-6">
-								<ul data-cat="satisf-servicio" style="margin-top: 7px;">
-									<li class="active" data-value="2"><a href="#"><img
-												src="images/encuesta-1.png" /></a></li>
-									<li data-value="3"><a href="#"><img src="images/encuesta-2.png" /></a></li>
-									<li data-value="4"><a href="#"><img src="images/encuesta-3.png" /></a></li>
-									<li data-value="5"><a href="#"><img src="images/encuesta-4.png" /></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-12 text-center">
-								<h2>Total: <span class="red-text">30</span> pts</h2>
-							</div>
-						</div>
-						<div class="row text-left">
-							<div class="col-12 text-center">
-								<form id="formEncuesta">
-									<div class="form-group row">
-										<label for="inputEspecInsatis" class="col-sm-4 col-form-label">Espectativas
-											insatifechas:</label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputEspecInsatis">
-										</div>
-									</div>
-									<div class="form-group row">
-										<label class="col-sm-6 col-form-label">Solicitaría nuevamente nuestros
-											servicios:</label>
-										<div class="col-1">Si</div>
-										<div class="col-1"><input type="radio" id="inputSolicServSi" name="input-solic"
-												checked="checked"></div>
-										<div class="col-1">No</div>
-										<div class="col-1"><input type="radio" id="inputSolicServNo" name="input-solic">
-										</div>
-										<div class="col-2"></div>
-									</div>
-									<div class="form-group row text-left">
-										<label for="inputAspMejorar" class="col-sm-12 col-form-label">Aspectos que se
-											podrían mejorar:</label>
-										<input type="text" class="form-control" id="inputAspMejorar">
-									</div>
-									<div class="form-group row text-left">
-										<label class="col-sm-6 col-form-label">Cual de nuestros servicios ha
-											usado:</label>
-										<div class="col-sm-2"><input type="checkbox" id="servUsadoImp">Importacion</div>
-										<div class="col-sm-2"><input type="checkbox" id="servUsadoExp">Exportacion</div>
-										<div class="col-sm-1"><input type="checkbox" id="servUsadoOtros">Otros</div>
-
-									</div>
-									<div class="form-group row text-left">
-										<p>Recomendaría usted nuestros servicios a otros empresarios o entidades que los
-											necesiten y les
-											hayan consultado?</p>
-									</div>
-									<div class="form-group row text-left">
-										<div class="col-sm-4"><input type="radio" name="input-recomenda"
-												checked="checked" id="siRecomend"> Sin duda que lo har&iacute;a</div>
-										<div class="col-sm-4"><input type="radio" name="input-recomenda"
-												id="noRecomend"> No lo har&iacute;a</div>
-										<div class="col-sm-4"><input type="radio" name="input-recomenda"
-												id="talvezRecomend"> Lo pensar&iacute;a</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-danger">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="registroModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Registro</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-					<form id="formRegistro">
-						<div class="form-group">
-							<label for="exampleInputEmail1">Nombre</label>
-							<input type="text" class="form-control" id="inputRegistroNombre"
-								aria-describedby="emailHelp" placeholder="Nombre de la empresa">
-							<small id="emailHelp" class="form-text text-muted">Nombre de la empresa a la que
-								representa</small>
-						</div>
-
-						<div class="form-group">
-							<label for="inputRegistroEmail">Email</label>
-							<input type="email" class="form-control" id="inputRegistroEmail"
-								aria-describedby="emailHelp" placeholder="Correo electr&oacute;nico">
-
-						</div>
-						<div class="form-group">
-							<label for="inputRegistroPass">Contrase&ntilde;a</label>
-							<input type="password" class="form-control" id="inputRegistroPass" placeholder="Password">
-						</div>
-
-					</form>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-danger">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
@@ -368,11 +160,6 @@
 			//ir a #listProyectos
 			$(".card").removeClass("activeCard");
 			$(this).addClass("activeCard");
-		});
-
-		$("#listProyectos .btn").click(function (e) {
-
-			$("#proyectoSeleccionado").slideDown(400);
 		});
 
 		//Importaciones

@@ -3,10 +3,14 @@
 section{
 	margin-top: 50px;
 }
+section p{
+	text-align: left;
+}
 h1{
 	margin-bottom:40px;
 }
-h1, h2, h3, h4 {
+
+h1, h2, h3, h4, .h1-secciones {
 	font-family: 'Patua One', cursive;
 	
 }
@@ -16,18 +20,19 @@ h1, h2, h3, h4 {
 }
 
 .redBg .active{
-	
+	border-radius: 5px;
 	background-color: #871b20;
 }
 .redBg .nav-link{
 	padding-left: 10px !important;
 	padding-right: 10px !important;
-	
+	border-radius: 5px;
 }
 
 .redBg .nav-link:hover{
 	color: #fff !important;
 	background-color:#FF0004 !important;
+	
 	
 }
 .nav-link {
@@ -67,13 +72,29 @@ h1, h2, h3, h4 {
   height: 100vh;
   min-height: 350px;
   background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 2600px 1660px;
+  -moz-background-size: 2600px 1660px;
+  -o-background-size: 2600px 1660px;
+  background-size: 2600px 1660px;
+	background-position: center -580px;
+	
+}
+#slideImport{
+	background-position: center -380px;
+}
+@media (min-width:768px){
+#slideImport{
+	background-position: -950px -380px;
+}
+}
+}
+@media (max-width:576px){
+#slideImport{
+	background-position: 60% -380px;
+}
 }
 .carousel-caption{
-	bottom: 25%;
+	bottom: 40%;
 }
 .carousel-caption .lead{
 	width: 40%;
@@ -217,7 +238,11 @@ footer ul{
 		font-size: 1.0rem;
 	}
 	.display-4{
-		font-size: 2.5rem !important;
+		font-size: 1.8rem !important;
+	}
+	#banner .carousel-item{
+		background-size:cover;
+		background-position:67% bottom;
 	}
 }
 @media (max-width:435px){
@@ -259,6 +284,13 @@ footer ul{
 	}
 	#idiomas{
 		margin-bottom:5px;
+	}
+	#banner .carousel-item{
+		background-size:auto 105%;
+		background-position:73% bottom;
+	}
+	#slideImport{
+		background-size:auto 144% !important;
 	}
 	
 }
@@ -352,6 +384,9 @@ footer ul{
 #contMercado .card img{
 	border-radius: 5px;
 }
+#contMercado .card img:hover{
+	opacity: .9;
+}
 #contMercado .card-footer{
 	border: none !important;
 	background-color: #fff;
@@ -413,7 +448,13 @@ footer ul{
 
 @media (max-width:510px){
 	.h1-secciones{
-		font-size: 3em;
+		font-size: 250%;
+	}
+	h2{
+		font-size:150%;
+	}
+	.banner-sec{
+		margin-top:63px;
 	}
 }
 @media (min-width:200px) and (max-width:768px){

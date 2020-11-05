@@ -274,7 +274,7 @@
         </p>
         <p>
           {% trans %}h_exportaciones{% endtrans %}: +53 7835 5223<br>
-          Email: <a href="#">lis@bkimp.co.cu</a>
+          Email: <a href="mailto:lis@bkimp.co.cu">lis@bkimp.co.cu</a>
         </p>
         <p>
           {% trans %}h_logistica{% endtrans %}: +53 7835 5276<br>
@@ -290,7 +290,8 @@
 {% block javascripts %}
 <script>
   $(document).ready(function () {
-
+    $(".who-active").removeClass("active");
+    $("#contactLink").addClass("active");
   })
 
 </script>

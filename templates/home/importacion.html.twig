@@ -3,178 +3,145 @@
 {% block body %}
 
 <section id="bannerImportacion" class="banner-sec">
-  <img src="images/banner-import.jpg" class="img-fluid" alt="Placeholder image">
-  </section>
- 
- <section id="contImport">
+  <img src="{{asset('images/banner-import.jpg')}}" class="img-fluid" alt="Placeholder image">
+</section>
 
-<div class="container myContainer text-center">
-<div class="row">
-  <div class="col-12 ">
-     <h1 class="h1-secciones">Importaciones</h1>
-    <p>La empresa se encuentra inmersa en el proceso de inversionista para la remodelaci&oacute;n, adquisici&oacute;n, ampliaci&oacute;n e instalaci&oacute;n de plantas, l&iacute;neas de producci&oacute;n, equipos y sistemas del Ministerio de Industrias.</p>
-   
-  </div>
-  </div>
-  
-   <div class="row">
-  <div class="col-12 ">
-     <h2 class="red-text">01</h1>
-    <h2>Clientes que trabajan con nosotros</h2>
-   
-  </div>
-  </div>
-  <div class="col-12 ">
-       <ul class="list-client">
-     <li ><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       <li><a href="#"><img src="images/200x200.gif" width="160" height="160" alt="nombre del cliente" /></a></li>
-       
-       
-     </ul>
-  </div>
-  
- 
-   
+<section id="contImport">
 
- 
+  <div class="container myContainer text-center">
+    <div class="row">
+      <div class="col-12 ">
+        <h1 class="h1-secciones">{% trans %}h_importaciones{% endtrans %}</h1>
+        <p>{% trans %}p_import_text1{% endtrans %}</p>
 
-     <div class="row text-center margin-topx2">
-     <div class="col-12">
-     <h2 class="red-text">02</h2>
-       <h2>Proyectos</h2>
-     </div>
-   
-     </div>
-   </div>
- </section>
- <section id="proyectoSeleccionado" class="resalt-section">
- <div class="container myContainer">
- <div class="row">
-     <div class="col-lg-6">
-       <div class="row">
-       <div class="col-md-10 col-sm-12 text-sm-center text-lg-left order-md-12"><img src="images/img-proyecto.jpg" class="img-fluid" alt="Placeholder image"></div>
-         <div class="col-md-2 col-sm-12 ">
-         <ul>
-         <li class="active"><a href="#"><img src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image"></a></li>
-         <li><a href="#"><img src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image"></a></li>
-         <li><a href="#"><img src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image"></a></li>
-           
-         <li><img src="images/renglon.jpg" class="img-fluid" /></li>
-         </ul>
-         </div>
-         
-       </div>
-   </div>
-     <div class="col-lg-6 text-sm-center text-lg-left margin-top-sm">
-       <h2>Nombre del proyecto</h2>
-       <span>Alcance</span>
-       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in </p>
-     </div>
-    
-  
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 ">
+        <h2 class="red-text">01</h1>
+          <h2>{% trans %}h_import_cliente{% endtrans %}</h2>
+
+      </div>
+    </div>
+    <div class="col-12 ">
+      <ul class="list-client">
+        {% for cliente in clientes %}
+        <li><a href="{{cliente.url}}"><img src="{{ asset('uploads/imagenes/' ~ cliente.imagen) }}" width="160"
+              height="160" alt="{{cliente.usuario.nombreApellidos}}" title="{{cliente.usuario.nombreApellidos}}" /></a>
+        </li>
+        {% else %}
+        <li>{% trans %}msg_no_registros{% endtrans %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="row text-center margin-topx2">
+      <div class="col-12">
+        <h2 class="red-text">02</h2>
+        <h2>{% trans %}h_import_proyectos{% endtrans %}</h2>
+      </div>
+
+    </div>
   </div>
- </div>
- </section>
- <section id="listProyectos">
-   <div class="container myContainer">
-   <div class="row">
-   <div class="col-12">
-     <div class="card-columns">
-     <div class="card p-3 "> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         </div>
-       <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver Proyecto</a></div>
-       </div>
-     
-     <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         </div>
-       <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver Proyecto</a></div>
-       </div>
-     
-     <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         </div>
-       <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver Proyecto</a></div>
-       </div>
-     
-     <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         </div>
-       <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver Proyecto</a></div>
-       </div>
-     
-     <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         </div>
-       <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver Proyecto</a></div>
-       </div>
-     
-     <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         </div>
-       <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver Proyecto</a></div>
-       </div>
-       
-       <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         </div>
-     <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver Proyecto</a></div>
-       </div>
-       
-       
-       </div>
-         </div>
-   </div>
-   </div>
- </section>
- <section id="galeriaImport">
- <div class="container myContainer">
-   <div class="row">
-     <div class="col-12 text-center">
-     <h2 class="red-text">03</h2>
-     <h2>Galer&iacute;a de Importaciones</h2>
-     </div>
-   </div>
-   <div class="row galeria margin-top margin-bottom text-center" >
-   
-   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery" data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a></div>
-   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery" data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a></div>
-   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery" data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a></div>
-   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery" data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a></div>
-   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery" data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a></div>
-   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><a href="images/img-galeria.jpg" data-fancybox="gallery" data-caption="Caption #1"><img src="images/img-galeria-min.jpg" class="img-fluid" alt="Placeholder image"></a></div>
-   
- 
-   </div>
-   </div>
- </section>
+</section>
+<section id="proyectoSeleccionado" class="resalt-section">
+  <div class="container myContainer">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-md-10 col-sm-12 text-sm-center text-lg-left order-md-12">
+            <img class="img1" src="images/img-proyecto.jpg"
+              class="img-fluid" alt="Placeholder image"></div>
+          <div class="col-md-2 col-sm-12 ">
+            <ul>
+              <li class="active"><a href="#"><img class="img1" src="images/img-proyecto-min.jpg" width="81" class="img-fluid"
+                    alt="Placeholder image"></a></li>
+              <li><a href="#"><img id="img2" src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image" width="81"></a></li>
+              <li><a href="#"><img id="img3" src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image" width="81"></a></li>
+
+              <li><img id="renglon" src="images/renglon.jpg" class="img-fluid" width="81"/></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-6 text-sm-center text-lg-left margin-top-sm">
+        <h2 id="name">Nombre del proyecto</h2>
+        <span>{% trans %}t_view_avance{% endtrans %}</span>
+        <p id="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+          dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+          suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+<section id="listProyectos">
+  <div class="container myContainer">
+    <div class="row">
+      <div class="col-12">
+        <div class="card-columns">
+
+          {% for proy in proyectos %}
+
+          <div class="card p-3 "> <img id="img1-{{proy.id}}" class="card-img-top" src="{{ asset('uploads/imagenes/' ~ proy.imagen1) }}"
+              width="145" height="82" alt="Card image cap">
+            <div class="card-body">              
+              <h5 class="card-title" id="name-{{proy.id}}">
+                {%if locale == 'es' %}{{ proy.nombre }} {%else%} {{proy.nombreEn}}
+                {%endif%}
+              </h5>
+              <span style="display: none;" id="desc-{{proy.id}}">{%if locale == 'es' %}{{ proy.descripcion }} {%else%} {{proy.descripcionEn}}{%endif%}</span>
+              <input type="hidden" id="img2-{{proy.id}}" value="{{ asset('uploads/imagenes/' ~ proy.imagen2) }}">
+              <input type="hidden" id="img3-{{proy.id}}" value="{{ asset('uploads/imagenes/' ~ proy.imagen3) }}">
+              <input type="hidden" id="renglon-{{proy.id}}" value="{{ asset('uploads/imagenes/' ~ proy.renglon.imagen) }}">
+            </div>
+            <div class="card-footer text-center"><a id="{{proy.id}}" href="#proyectoSeleccionado"
+                class="btn btn-dark">{% trans %}link_view_proyecto{% endtrans %}</a>
+            </div>
+          </div>
+          {% else %}
+          {% trans %}msg_no_registros{% endtrans %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="galeriaImport">
+  <div class="container myContainer">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="red-text">03</h2>
+        <h2>{% trans %}h_import_galeria{% endtrans %}</h2>
+      </div>
+    </div>
+    <div class="row galeria margin-top margin-bottom text-center">
+
+      {% for img in galerias %}
+
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+        <a href="{{ asset('uploads/imagenes/' ~ img.imagen) }}" data-fancybox="gallery" data-caption="Caption #1">
+          <img src="{{ asset('uploads/imagenes/' ~ img.imagen) }}" width="400" class="img-fluid"
+            alt="Placeholder image"></a></div>
+      {% else %}
+      <li>{% trans %}msg_no_registros{% endtrans %}</li>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
 
 {% endblock %}
 {% block javascripts %}
 <script>
   $(document).ready(function () {
-
-  })
+    $(".who-active").removeClass("active");
+    $("#impLink").addClass("active");
+  });
 
 </script>
 {% endblock %}

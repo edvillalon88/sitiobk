@@ -11,15 +11,16 @@
       <div class="col-12 text-center">
         <h1 class="h1-secciones">{% trans %}h_logistica{% endtrans %}</h1>
         <p class="text-left">{% trans %}p_logistic_text1{% endtrans %}</p>
+        <span id="headerlink"></span>
         <p class="text-left">{% trans %}p_logistic_text2{% endtrans %}</p>
       </div>
     </div>
   </div>
   <div class="container myContainer" id="interactLogist">
     <div class="row margin-top">
-      <div class="col-6 text-right"><a href="#interactLogist" onclick="openInfo(1)" id="avion" class="active"><img src="{{asset('images/avion-logistica.png')}}"
+      <div class="col-6 text-right"><a href="#headerlink" onclick="openInfo(1)" id="avion" class="active"><img src="{{asset('images/avion-logistica.png')}}"
             class="rounded-circle img-fluid" alt="Placeholder image"></a></div>
-      <div class="col-6 text-left"><a href="#interactLogist" onclick="openInfo(2)" id="barco"><img src="{{asset('images/barco-logistica.png')}}"
+      <div class="col-6 text-left"><a href="#headerlink" onclick="openInfo(2)" id="barco"><img src="{{asset('images/barco-logistica.png')}}"
             class="rounded-circle img-fluid" alt="Placeholder image"></a></div>
     </div>
     <div id="infoAvion">
@@ -58,7 +59,8 @@
 {% block javascripts %}
 <script>
   $(document).ready(function () {
-
+    $(".who-active").removeClass("active");
+    $("#logLink").addClass("active");
   })
 
   var openInfo = function(number) {

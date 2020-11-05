@@ -22,7 +22,7 @@
       <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('images/slider03.jpg')">
         <div class="carousel-caption d-md-block text-left">
-          <h2 class="display-4 text-uppercase">{% trans %}h_importaciones{% endtrans %}</h2>
+          <h2 class="display-4 text-uppercase">{% trans %}h_importacion{% endtrans %}</h2>
           <p class="lead">{% trans %}slider_import{% endtrans %}</p>
           <a class="btn btn-primary btn-sm" href="{{ path('importaciones') }}"
             role="button">{% trans %}b_leer_mas{% endtrans %}</a>
@@ -31,7 +31,7 @@
       <!-- Slide three - Set the background image for this slide in the line below -->
       <div id="slideImport" class="carousel-item" style="background-image: url('images/slider02.jpg')">
         <div class="carousel-caption d-md-block text-left">
-          <h2 class="display-4 text-uppercase">{% trans %}h_exportaciones{% endtrans %}</h2>
+          <h2 class="display-4 text-uppercase">{% trans %}h_exportacion{% endtrans %}</h2>
           <p class="lead">{% trans %}slider_export{% endtrans %}</p>
           <a class="btn btn-primary btn-sm" href="{{ path('exportaciones') }}"
             role="button">{% trans %}b_leer_mas{% endtrans %}</a>
@@ -88,7 +88,8 @@
                     <div class="card-body">
                       <h5 class="card-title">{%if locale == 'es' %}{{ renglon.nombre }} {%else%} {{renglon.nombreEn}}
                         {%endif%}</h5>
-                      <p class="card-text">{{renglon.descripcion}}</p>
+                      <p class="card-text">{%if locale == 'es' %}{{ renglon.descripcion }} {%else%} {{renglon.descripcionEn}}
+                        {%endif%}</p>
                     </div>
                   </div>
                 </div>
@@ -140,13 +141,12 @@
 <section id="clientesHome">
   <div class="container myContainer text-center">
     <h1>{% trans %}h_idx_clientes{% endtrans %}</h1>
-    <p>{% trans %}p_nuestros_clientes{% endtrans %}</p>
     <ul class="list-client">
       {% for cliente in clientes %}
-      <li><a href="#"><img src="{{ asset('uploads/imagenes/' ~ cliente.imagen) }}" width="160" height="160"
+      <li><a href="{{cliente.url}}"><img src="{{ asset('uploads/imagenes/' ~ cliente.imagen) }}" width="160" height="160"
             alt="{{cliente.usuario.nombreApellidos}}" title="{{cliente.usuario.nombreApellidos}}" /></a></li>
       {% else %}
-      <li>No hay registros</li>
+      <li>{% trans %}msg_no_registros{% endtrans %}</li>
       {% endfor %}
 
     </ul>
@@ -191,7 +191,8 @@
 {% block javascripts %}
 <script>
   $(document).ready(function () {
-
+    $(".who-active").removeClass("active");
+    $("#homeLink").addClass("active");
   })
 
 </script>
