@@ -11,37 +11,22 @@
   <div class="container myContainer text-center">
     <div class="row">
       <div class="col-12 ">
-        <h1 class="h1-secciones">Exportaciones</h1>
-        <p>Trabaja continuamente en la diversificación de mercados, con una amplia cartera de productos y servicios.
-          Desarrolla y exporta proyectos integrales llave en mano de conjunto con las empresas del Ministerio de
-          Industrias. Colabora en la identificación de capacidades de fabricación y/o integración de los renglones
-          exportables y sobre esa base, promueve acuerdos de provecho mutuo entre la industria y fabricantes extranjeros
-          (proveedores) que garanticen transferencia de tecnología, asesoría técnica, financiamientos, mercados o
-          canales de distribución y otras facilidades.</p>
-        <p>
-          Incorpora conceptos modernos aplicados mundialmente para lograr un trabajo de excelencia, con una proyección
-          de atención personalizada a los clientes actuales y potenciales, así como la mejora continua y la preparación
-          de todo nuestro personal, pretendemos brindar más que un producto, una solución adecuada a las necesidades de
-          nuestros clientes.</p>
+        <h1 class="h1-secciones">{% trans %}h_exportaciones{% endtrans %}</h1>
+        <p>{% trans %}p_export_text1{% endtrans %}</p>
+        <p>{% trans %}p_export_text2{% endtrans %}</p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12 ">
         <h2 class="red-text">01</h1>
-          <h2>Renglones de Exportaci&oacute;n</h2>
+          <h2>{% trans %}h_idx_renglones{% endtrans %}</h2>
 
       </div>
     </div>
     <div class="col-12 ">
 
     </div>
-
-
-
-
-
-
 
   </div>
 </section>
@@ -51,146 +36,61 @@
 
       <div class="carousel-inner" role="listbox">
 
+        {% for key, renglon in renglones %}
 
+        {% if key % 5 == 0 %}                
+        {% if key== 0 %}
         <div class="carousel-item active ">
-          <div class="row">
-
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card activeCard "> <img class="card-img-top" src="images/renglon.jpg"
-                  alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-
+        {%else%}
         <div class="carousel-item">
-          <div class="row">
+        {%endif%}
+        <div class="row">
+          <div class="col-1 d-none d-md-block d-lg-block  d-xs-block"></div>
+        {%endif%}
 
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card activeCard "> <img class="card-img-top" src="images/renglon.jpg"
-                  alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-4 ">
+          <div id="{{renglon.id}}" class="card-renglon"> <img class="card-img-top" src="{{ asset('uploads/imagenes/' ~ renglon.imagen) }}"
+              alt="nombre del renglon">
+            <div class="card-body">
+              <h5 class="card-title">{%if locale == 'es' %}{{ renglon.nombre }} {%else%} {{renglon.nombreEn}}
+                {%endif%}</h5>
+              <p class="card-text">{%if locale == 'es' %}{{ renglon.descripcion }} {%else%} {{renglon.descripcionEn}}
+                {%endif%}</p>
             </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-4 col-sm-6 col-md-4 col-lg-4 col-xl-2 ">
-              <div class="card "> <img class="card-img-top" src="images/renglon.jpg" alt="nombre del renglon">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
 
+        {% if (key + 1) % 5 == 0 or (key + 1) >= renglones|length %}
+        <div class="col-1 d-none d-md-block d-lg-block  d-xs-block"></div>
+        </div>
+        </div>
+        {%endif%}
+        
 
-      </div>
-      <a class="carousel-control-prev" href="#carrouselRenglones" role="button" data-slide="prev"> <span
-          class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a
-        class="carousel-control-next" href="#carrouselRenglones" role="button" data-slide="next"> <span
-          class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
-    </div>
+        {% else %}
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-4 ">
+          <div class="card ">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">{% trans %}msg_no_registros{% endtrans %}</p>
+            </div>
+          </div>
+        </div>
+     
+        {% endfor %}
+
+  </div>
+  <a class="carousel-control-prev" href="#carrouselRenglones" role="button" data-slide="prev"> <span
+      class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+  <a class="carousel-control-next" href="#carrouselRenglones" role="button" data-slide="next"> <span
+      class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+</div>
   </div>
   <div class="fluid-container" style="overflow: hidden;">
     <div class="row text-center margin-topx2">
       <div class="col-12">
         <h2 class="red-text">02</h2>
-        <h2>Proyectos Renglon Seleccionado</h2>
+        <h2>{% trans %}h_proyectos_renglon{% endtrans %}</h2>
       </div>
 
     </div>
@@ -198,30 +98,30 @@
 </section>
 
 <section id="proyectoSeleccionado" class="resalt-section">
-
   <div class="container myContainer">
     <div class="row">
       <div class="col-lg-6">
         <div class="row">
-          <div class="col-md-10 col-sm-12 text-sm-center text-lg-left order-md-12"><img src="images/img-proyecto.jpg"
+          <div class="col-md-10 col-sm-12 text-sm-center text-lg-left order-md-12">
+            <img class="img1" src="images/img-proyecto.jpg"
               class="img-fluid" alt="Placeholder image"></div>
           <div class="col-md-2 col-sm-12 ">
             <ul>
-              <li class="active"><a href="#"><img src="images/img-proyecto-min.jpg" class="img-fluid"
+              <li class="active"><a href="#"><img class="img1" src="images/img-proyecto-min.jpg" width="81" class="img-fluid"
                     alt="Placeholder image"></a></li>
-              <li><a href="#"><img src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image"></a></li>
-              <li><a href="#"><img src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image"></a></li>
+              <li><a href="#"><img id="img2" src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image" width="81"></a></li>
+              <li><a href="#"><img id="img3" src="images/img-proyecto-min.jpg" class="img-fluid" alt="Placeholder image" width="81"></a></li>
 
-
+              <li><img id="renglon" src="images/renglon.jpg" class="img-fluid" width="81"/></li>
             </ul>
           </div>
 
         </div>
       </div>
       <div class="col-lg-6 text-sm-center text-lg-left margin-top-sm">
-        <h2>Nombre del proyecto</h2>
-        <span>Alcance</span>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+        <h2 id="name">Nombre del proyecto</h2>
+        <span>{% trans %}t_view_avance{% endtrans %}</span>
+        <p id="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
           dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
           suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
         </p>
@@ -236,63 +136,28 @@
     <div class="row">
       <div class="col-12">
         <div class="card-columns">
-          <div class="card p-3 "> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+
+          {% for proy in proyectos %}
+
+          <div class="card p-3 renglon-{{proy.renglon.id}}" style="display: none;"> <img id="img1-{{proy.id}}" class="card-img-top" src="{{ asset('uploads/imagenes/' ~ proy.imagen1) }}"
+              width="145" height="82" alt="Card image cap">
+            <div class="card-body">              
+              <h5 class="card-title" id="name-{{proy.id}}">
+                {%if locale == 'es' %}{{ proy.nombre }} {%else%} {{proy.nombreEn}}
+                {%endif%}
+              </h5>
+              <span style="display: none;" id="desc-{{proy.id}}">{%if locale == 'es' %}{{ proy.descripcion }} {%else%} {{proy.descripcionEn}}{%endif%}</span>
+              <input type="hidden" id="img2-{{proy.id}}" value="{{ asset('uploads/imagenes/' ~ proy.imagen2) }}">
+              <input type="hidden" id="img3-{{proy.id}}" value="{{ asset('uploads/imagenes/' ~ proy.imagen3) }}">
+              <input type="hidden" id="renglon-{{proy.id}}" value="{{ asset('uploads/imagenes/' ~ proy.renglon.imagen) }}">
             </div>
-            <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver M&aacute;s</a>
+            <div class="card-footer text-center"><a id="{{proy.id}}" href="#proyectoSeleccionado"
+                class="btn btn-dark">{% trans %}link_view_proyecto{% endtrans %}</a>
             </div>
           </div>
-
-          <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-            </div>
-            <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver M&aacute;s</a>
-            </div>
-          </div>
-
-          <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-            </div>
-            <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver M&aacute;s</a>
-            </div>
-          </div>
-
-          <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-            </div>
-            <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver M&aacute;s</a>
-            </div>
-          </div>
-
-          <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-            </div>
-            <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver M&aacute;s</a>
-            </div>
-          </div>
-
-          <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-            </div>
-            <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver M&aacute;s</a>
-            </div>
-          </div>
-
-          <div class="card p-3"> <img class="card-img-top" src="images/img-proyecto-min.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-            </div>
-            <div class="card-footer text-center"><a href="#proyectoSeleccionado" class="btn btn-dark">Ver M&aacute;s</a>
-            </div>
-          </div>
-
-
+          {% else %}
+          {% trans %}msg_no_registros{% endtrans %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -303,7 +168,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <h2 class="red-text">03</h2>
-        <h2>Galer&iacute;a de Importaciones</h2>
+        <h2>{% trans %}h_export_galeria{% endtrans %}</h2>
       </div>
     </div>
     <div class="row galeria margin-top margin-bottom text-center">

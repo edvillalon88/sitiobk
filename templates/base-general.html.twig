@@ -28,22 +28,27 @@
 							class="sr-only">(current)</span></a>
 				</li>
 				<li id="tradeLink" class="who-active nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('mercadotecnia') }}">{% trans %}h_mercadotecnia{% endtrans %}</a>
+					<a class="nav-link text-uppercase"
+						href="{{ path('mercadotecnia') }}">{% trans %}h_mercadotecnia{% endtrans %}</a>
 				</li>
 
 				<li id="impLink" class="who-active nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('importaciones') }}">{% trans %}h_importaciones{% endtrans %}</a>
+					<a class="nav-link text-uppercase"
+						href="{{ path('importaciones') }}">{% trans %}h_importaciones{% endtrans %}</a>
 				</li>
 
 				<li id="expLink" class="who-active nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('exportaciones') }}">{% trans %}h_exportaciones{% endtrans %}</a>
+					<a class="nav-link text-uppercase"
+						href="{{ path('exportaciones') }}">{% trans %}h_exportaciones{% endtrans %}</a>
 				</li>
 
 				<li id="logLink" class="who-active nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('logistica') }}">{% trans %}h_logistica{% endtrans %}</a>
+					<a class="nav-link text-uppercase"
+						href="{{ path('logistica') }}">{% trans %}h_logistica{% endtrans %}</a>
 				</li>
 				<li id="contactLink" class="who-active nav-item">
-					<a class="nav-link text-uppercase" href="{{ path('contacto') }}">{% trans %}h_contacto{% endtrans %}</a>
+					<a class="nav-link text-uppercase"
+						href="{{ path('contacto') }}">{% trans %}h_contacto{% endtrans %}</a>
 				</li>
 				<li class="dropdown-divider"></li>
 			</ul>
@@ -77,14 +82,22 @@
 					<div class="col-md-12 col-sm-12 col-lg-4 text-center text-lg-left ">
 						<h2>{% trans %}h_sitios_interes{% endtrans %}</h2>
 						<ul>
-							<li><a target="_blank" href="https://www.mindus.gob.cu/es">{% trans %}link_industria{% endtrans %}</a></li>
-							<li><a target="_blank" href="https://www.mincex.gob.cu">{% trans %}link_comercio{% endtrans %}</a></li>
-							<li><a target="_blank" href="http://www.minrex.gob.cu/es">{% trans %}link_exterior{% endtrans %}</a></li>
-							<li><a target="_blank" href="http://www.zedmariel.com/es">{% trans %}link_mariel{% endtrans %}</a></li>
-							<li><a target="_blank" href="http://www.procuba.cu/es">{% trans %}link_promocion{% endtrans %}</a></li>
-							<li><a target="_blank" href="http://misiones.minrex.gob.cu/es/camara-de-comercio">{% trans %}link_camara{% endtrans %}</a></li>
+							<li><a target="_blank"
+									href="https://www.mindus.gob.cu/es">{% trans %}link_industria{% endtrans %}</a></li>
+							<li><a target="_blank"
+									href="https://www.mincex.gob.cu">{% trans %}link_comercio{% endtrans %}</a></li>
+							<li><a target="_blank"
+									href="http://www.minrex.gob.cu/es">{% trans %}link_exterior{% endtrans %}</a></li>
+							<li><a target="_blank"
+									href="http://www.zedmariel.com/es">{% trans %}link_mariel{% endtrans %}</a></li>
+							<li><a target="_blank"
+									href="http://www.procuba.cu/es">{% trans %}link_promocion{% endtrans %}</a></li>
+							<li><a target="_blank"
+									href="http://misiones.minrex.gob.cu/es/camara-de-comercio">{% trans %}link_camara{% endtrans %}</a>
+							</li>
 							<li><a target="_blank" href="https://www.sime.cu/es">GESIME</a></li>
-							<li><a target="_blank" href="https://www.aduana.gob.cu/">{% trans %}link_aduana{% endtrans %}</a></li>
+							<li><a target="_blank"
+									href="https://www.aduana.gob.cu/">{% trans %}link_aduana{% endtrans %}</a></li>
 						</ul>
 
 
@@ -102,10 +115,12 @@
 						<h2>{% trans %}h_contactanos{% endtrans %}</h2>
 						<form id="formContactFooter">
 							<div class="form-group">
-								<input type="text" class="form-control" id="inputNombreFooter" placeholder="{% trans %}tx_nombre{% endtrans %}">
+								<input type="text" class="form-control" id="inputNombreFooter"
+									placeholder="{% trans %}tx_nombre{% endtrans %}">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" id="inputEmailFooter" placeholder="{% trans %}tx_email{% endtrans %}">
+								<input type="email" class="form-control" id="inputEmailFooter"
+									placeholder="{% trans %}tx_email{% endtrans %}">
 							</div>
 							<div class="form-group">
 								<textarea></textarea>
@@ -156,19 +171,40 @@
 		};
 
 		//Exportaciones
-		$("#renglonesExportacionExp .card").click(function (e) {
+		$(".card-renglon").click(function (e) {			
 			//ir a #listProyectos
-			$(".card").removeClass("activeCard");
+			$(".card-renglon").removeClass("activeCard");
 			$(this).addClass("activeCard");
+			$("#proyectoSeleccionado").hide();
+			var id = $(this).prop("id");
+			$(".p-3").hide();
+			$(".renglon-" + id).show();
 		});
 
-		//Importaciones
 		$("#listProyectos .btn").click(function (e) {
+
+			var id = $(this).prop("id");
+
+			$("#name").html($("#name-" + id).html());
+			$("#desc").html($("#desc-" + id).html());
+
+			$(".img1").prop("src", $("#img1-" + id).prop("src"));
+			$(".img1").prop("alt", $("#name-" + id).html());
+
+			$("#img2").prop("src", $("#img2-" + id).val());
+			$("#img2").prop("alt", $("#name-" + id).html());
+
+			$("#img3").prop("src", $("#img3-" + id).val());
+			$("#img3").prop("alt", $("#name-" + id).html());
+
+			$("#renglon").prop("src", $("#renglon-" + id).val());
+			$("#renglon").prop("alt", $("#name-" + id).html());
+
 			$("#proyectoSeleccionado").slideDown(400);
-		});		 
+		});	 
 	</script>
 
-{% block javascripts %}{% endblock %}
+	{% block javascripts %}{% endblock %}
 
 </body>
 
