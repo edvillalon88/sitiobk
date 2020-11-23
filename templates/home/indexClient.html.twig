@@ -126,7 +126,8 @@
 <section id="noticia" class="resalt-section">
   <div class="container myContainer">
     <div class="row">
-      <div class="col-xl-4 col-lg-12 text-sm-center "><img src="{{ asset('uploads/imagenes/' ~ noticia.imagen) }}"
+      <div class="col-xl-4 col-lg-12 text-sm-center ">
+        <img src="{%if noticia != null and noticia.imagen != null %} {{ asset('uploads/imagenes/' ~ noticia.imagen) }} {%endif%}"
           class="img-fluid" alt="Placeholder image"></div>
       <div class="col-xl-8 col-lg-12 text-md-left text-sm-center">
         <h2>{%if locale == 'es' %} {{noticia.titulo}} {%else%} {{noticia.tituloEn}}{%endif%}</h2>
