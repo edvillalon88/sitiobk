@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\EnumEstado;
+use App\Entity\Noticia;
 
 use App\Repository\ProveedorRepository;
 use App\Repository\RenglonRepository;
@@ -29,6 +30,35 @@ class HomeController extends AbstractController
         ClienteRepository $clienteRep,
         NoticiaRepository $noticiaRep, $_locale = 'es')
     {
+
+        $noticia = $noticiaRep->find(1);
+
+        if($noticia == null)
+            $noticia = new Noticia();
+        
+        if($noticia->getImagen() == null)
+            $noticia->setImagen("");
+
+        if($noticia->getTitulo() == null)
+        $noticia->setTitulo("vacío");
+
+        if($noticia->getTituloEn() == null)
+        $noticia->setTituloEn("empty");
+
+        if($noticia->getSubtitulo() == null)
+        $noticia->setSubtitulo("vacío");
+
+        if($noticia->getSubtituloEn() == null)
+        $noticia->setSubtituloEn("empty");
+
+        if($noticia->getContenido() == null)
+        $noticia->setContenido("vacío");
+
+        if($noticia->getContenidoEn() == null)
+        $noticia->setContenidoEn("empty");
+
+        if($noticia->getFechaHora() == null)
+        $noticia->setFechaHora(new \DateTime());
       
         if(!empty($this->getUser())) {
 
@@ -50,7 +80,7 @@ class HomeController extends AbstractController
                 return $this->render('home/indexClient.html.twig', [
                     'renglones' => $renglonRep->findAll(),
                     'clientes' => $clienteRep->findAll(),
-                    'noticia' => $noticiaRep->find(1),
+                    'noticia' => $noticia,
                     'locale' => $_locale
                 ]);
             }
@@ -59,7 +89,7 @@ class HomeController extends AbstractController
             return $this->render('home/indexClient.html.twig', [
                 'renglones' => $renglonRep->findAll(),
                 'clientes' => $clienteRep->findAll(),
-                'noticia' => $noticiaRep->find(1),
+                'noticia' => $noticia,
                 'locale' => $_locale
             ]);
         }
